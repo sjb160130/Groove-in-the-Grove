@@ -1,0 +1,31 @@
+*/Library/
+*.mp4
+*.ogg
+*/Assets/Plugins/MicControl2/example.meta
+*/Assets/Plugins/MicControl2/example/
+*/Assets/Photon Unity Networking/Demos.meta
+*/Assets/Photon Unity Networking/Demos/
+*/Assembly-CSharp*.csproj
+Edits/
+*.ogg.meta
+*/Temp/
+Thumbs.db.meta
+*.psd
+*.swatch
+*.swatches
+*.vma
+*/Prompter/
+Content/
+*/Assets/Plugins/VectrosityDemos.*
+*/Assets/VectrosityDemos.*
+*/Assets/VectrosityDemos/
+*/Assets/Plugins/VectrosityDemos/
+Source/
+*/Assets/Allsky.meta
+*/Assets/Allsky/
+*/Assets/Realistic Snow/
+*/Assets/Realistic Snow.meta
+*.sublime-workspace
+*/Assets/PlayMaker/Editor/Install/
+*/obj/
+*/.vs/
