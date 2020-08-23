@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
+
 namespace NatureLad
 {
     [System.Serializable]
@@ -120,6 +121,10 @@ namespace NatureLad
                 Vector3 wantedPosition = activeIcons[i].icon.anchoredPosition3D;
                 wantedPosition.x -= _deltaAudioTime * _pixelsPerSecond; //GetPositionOnTimelineByIdx(activeIcons[i].idx);
                 activeIcons[i].icon.anchoredPosition3D = wantedPosition; //activeIcons[i].icon.anchoredPosition3D + (Vector3.left * _iconMoveSpeed * Time.deltaTime);
+                if(!activeIcons[i].isHit)
+                {
+                    activeIcons[i].icon.localScale = Vector3.Lerp(Vector3.one * .5f, Vector3.one, power);
+                }
 
                 if (activeIcons[i].icon.anchoredPosition3D.x < 0)
                 {
