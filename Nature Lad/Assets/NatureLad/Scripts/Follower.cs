@@ -46,14 +46,14 @@ namespace NatureLad
             if (Physics.Raycast(transform.position + Vector3.up*1f, transform.TransformDirection(Vector3.down), out hit, 5f))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-                Debug.Log("Did Hit");
+                //Debug.Log("Did Hit");
 
                 transform.position = hit.point + Vector3.up*radius;
             }
             else
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * 5f, Color.white);
-                Debug.Log("Did not Hit");
+                //Debug.Log("Did not Hit");
             }
             //transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime);
         }
