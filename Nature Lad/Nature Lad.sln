@@ -5,9 +5,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.CompatibilityLayer", "Sirenix.OdinInspector.CompatibilityLayer.csproj", "{3F80BFFC-00E3-6870-914B-19300A4CCE07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToonyColorsPro.Runtime", "ToonyColorsPro.Runtime.csproj", "{E9073E64-777B-23A8-6737-7A746788FB68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToonyColorsPro2.Demo", "ToonyColorsPro2.Demo.csproj", "{2E4A8308-A69C-E87B-3921-6B1E951D64E2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{1F87F73B-06D4-5614-4A1C-856BC26C7FFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sirenix.OdinInspector.CompatibilityLayer.Editor", "Sirenix.OdinInspector.CompatibilityLayer.Editor.csproj", "{C7EAC602-1ED8-1ABF-E1CD-E7ACF6D18360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToonyColorsPro.Editor", "ToonyColorsPro.Editor.csproj", "{52B3167B-1324-53C8-E0AC-8EEB3E667608}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +29,14 @@ Global
 		{3F80BFFC-00E3-6870-914B-19300A4CCE07}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F80BFFC-00E3-6870-914B-19300A4CCE07}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F80BFFC-00E3-6870-914B-19300A4CCE07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9073E64-777B-23A8-6737-7A746788FB68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9073E64-777B-23A8-6737-7A746788FB68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9073E64-777B-23A8-6737-7A746788FB68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9073E64-777B-23A8-6737-7A746788FB68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4A8308-A69C-E87B-3921-6B1E951D64E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4A8308-A69C-E87B-3921-6B1E951D64E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4A8308-A69C-E87B-3921-6B1E951D64E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4A8308-A69C-E87B-3921-6B1E951D64E2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F87F73B-06D4-5614-4A1C-856BC26C7FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F87F73B-06D4-5614-4A1C-856BC26C7FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F87F73B-06D4-5614-4A1C-856BC26C7FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,6 +45,10 @@ Global
 		{C7EAC602-1ED8-1ABF-E1CD-E7ACF6D18360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7EAC602-1ED8-1ABF-E1CD-E7ACF6D18360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7EAC602-1ED8-1ABF-E1CD-E7ACF6D18360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52B3167B-1324-53C8-E0AC-8EEB3E667608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B3167B-1324-53C8-E0AC-8EEB3E667608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B3167B-1324-53C8-E0AC-8EEB3E667608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B3167B-1324-53C8-E0AC-8EEB3E667608}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
