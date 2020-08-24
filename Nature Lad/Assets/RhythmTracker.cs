@@ -4,8 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
-using UnityEditor;
-using UnityEditor.UI;
+//using UnityEditor;
+//using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -28,8 +28,10 @@ namespace NatureLad
 
     public class RhythmTracker : SerializedMonoBehaviour
     {
-        [TableMatrix(DrawElementMethod = "DrawCell")]
-        public bool[,] sequence = new bool[64, 2];
+/*        [TableMatrix(DrawElementMethod = "DrawCell")]
+        public bool[,] sequence = new bool[64, 2];*/
+
+        public bool[] pressSequence = new bool[64];
 
         public UnityEvent mOnMaxPowerHit = new UnityEvent();
         public UnityEvent mOnPowerDrained = new UnityEvent();
@@ -147,8 +149,8 @@ namespace NatureLad
                 UpdateBeat();
             }
 
-            _inHitWindow = sequence[_idx, 0];
-            _inReleaseWindow = sequence[_idx, 1];
+            _inHitWindow = pressSequence[_idx];
+            _inReleaseWindow = pressSequence[_idx];
 
             if (_player)
             {
@@ -192,7 +194,7 @@ namespace NatureLad
         void PrecalculateData()
         {
             _length = progression[0].length;
-            _beatLength = _length / (sequence.Length / 2.0f);
+            _beatLength = _length / (float)pressSequence.Length;
             _pixelsPerBeat = (lineWidth - lineOffset) / beatPreview;
             _pixelsPerSecond = (lineWidth - lineOffset) / (beatPreview * _beatLength);
             _accuracyLength = _beatLength * beatAccuracy;
@@ -281,8 +283,8 @@ namespace NatureLad
         void UpdateBeat()
         {
             bool shouldSpawn = _wantedIconSize > minIconSize || spawnIconIfMin;//Mathf.Approximately(Mathf.Max(_wantedIconSize, minIconSize), minIconSize)
-            int wantedIdx = (_idx + beatPreview) % (sequence.Length / 2);
-            if (visualIcon != null && sequence[ wantedIdx, 0] && shouldSpawn)
+            int wantedIdx = (_idx + beatPreview) % pressSequence.Length;
+            if (visualIcon != null && pressSequence[ wantedIdx] && shouldSpawn)
             {
                 RectTransform icon = Instantiate(visualIcon, lineParent);
                 icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
@@ -306,7 +308,7 @@ namespace NatureLad
             Gizmos.DrawWireSphere(transform.position, proximityRangeMax);
         }
 
-        private static bool DrawCell(Rect rect, bool value)
+/*        private static bool DrawCell(Rect rect, bool value)
         {
             if (Event.current.type == EventType.MouseDown &&
                 rect.Contains(Event.current.mousePosition))
@@ -322,7 +324,7 @@ namespace NatureLad
                     : new Color(0, 0, 0, .5f));
 
             return value;
-        }
+        }*/
 
         public void SetIgnoreProximity(bool v)
         {
