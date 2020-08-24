@@ -7,6 +7,7 @@ using System.Threading;
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace NatureLad
@@ -30,12 +31,24 @@ namespace NatureLad
         [TableMatrix(DrawElementMethod = "DrawCell")]
         public bool[,] sequence = new bool[64, 2];
 
+        public UnityEvent mOnMaxPowerHit = new UnityEvent();
+        public UnityEvent mOnPowerDrained = new UnityEvent();
+
         [SerializeField]
         private float power = 0f;
         [SerializeField]
         private float attenuation = .1f;
         [SerializeField]
         private float powerIncrease = .1f;
+
+        [SerializeField]
+        private bool ignoreProximity = false;
+        [SerializeField]
+        private float proximityRangeMin = 10f;
+        [SerializeField]
+        private float proximityRangeMax = 20f;
+
+        private float proximityPower = 0f;
 
         [SerializeField]
         private AudioClip[] progression;
@@ -77,7 +90,23 @@ namespace NatureLad
         private float _accuracyLength;
         private int _idx = 0;
 
+        [SerializeField]
+        private bool spawnIconIfMin = false;
+
+        [SerializeField]
+        private float minIconSize = .5f;
+
+        [SerializeField]
+        private float _wantedIconSize = 0f;
+
+        [SerializeField]
+        private float _aggregatePower = 0f;
+
         public List<BeatIcon> activeIcons = new List<BeatIcon>();
+
+        private GameObject _player;
+
+        private bool _hasPower;
 
         private void Start()
         {
@@ -88,6 +117,11 @@ namespace NatureLad
             }
 
             Play();
+
+            if(!_player)
+            {
+                _player = GameObject.FindGameObjectWithTag("Player");
+            }
         }
 
         // Update is called once per frame
@@ -116,14 +150,23 @@ namespace NatureLad
             _inHitWindow = sequence[_idx, 0];
             _inReleaseWindow = sequence[_idx, 1];
 
-            for( int i = 0; i < activeIcons.Count; i++)
+            if (_player)
+            {
+                float distance = (_player.transform.position - transform.position).magnitude;
+                proximityPower = 1f - ((Mathf.Clamp(distance, proximityRangeMin, proximityRangeMax) - proximityRangeMin) / (proximityRangeMax - proximityRangeMin));
+            }
+
+            _aggregatePower = Mathf.Max(power, proximityPower);
+            _wantedIconSize = Mathf.Lerp(minIconSize, 1f, _aggregatePower);
+
+            for ( int i = 0; i < activeIcons.Count; i++)
             {
                 Vector3 wantedPosition = activeIcons[i].icon.anchoredPosition3D;
                 wantedPosition.x -= _deltaAudioTime * _pixelsPerSecond; //GetPositionOnTimelineByIdx(activeIcons[i].idx);
                 activeIcons[i].icon.anchoredPosition3D = wantedPosition; //activeIcons[i].icon.anchoredPosition3D + (Vector3.left * _iconMoveSpeed * Time.deltaTime);
                 if(!activeIcons[i].isHit)
                 {
-                    activeIcons[i].icon.localScale = Vector3.Lerp(Vector3.one * .5f, Vector3.one, power);
+                    activeIcons[i].icon.localScale = Vector3.one * _wantedIconSize;
                 }
 
                 if (activeIcons[i].icon.anchoredPosition3D.x < 0)
@@ -133,8 +176,17 @@ namespace NatureLad
                 }
             }
 
+
+
             power = Mathf.Lerp(power, 0f, Time.deltaTime * attenuation);
-            _audioSource.volume = Mathf.Lerp(_audioSource.volume, power, Time.deltaTime*2f);
+
+            if(power < .01 && _hasPower)
+            {
+                _hasPower = false;
+                mOnPowerDrained.Invoke();
+            }
+
+            _audioSource.volume = Mathf.Lerp(_audioSource.volume, _aggregatePower, Time.deltaTime*2f);
         }
 
         void PrecalculateData()
@@ -171,14 +223,19 @@ namespace NatureLad
                         {
                             inHitWindow = true;
                         }*/
-
             
+            if(Mathf.Approximately(proximityPower,0f) && !ignoreProximity)
+            {
+                return;
+            }
+
             for (int i = 0; i < Mathf.Min(activeIcons.Count, 4); i++)
             {
                 if(activeIcons[i].isHit)
                 {
                     continue;
                 }
+                float powerMult = ignoreProximity ? 1.0f : proximityPower;
 
                 float wantedTime = activeIcons[i].idx * _beatLength;
                 float delta = Mathf.Abs(wantedTime - _timer);
@@ -190,16 +247,20 @@ namespace NatureLad
                     activeIcons[i].icon.localScale = Vector3.one * 1.25f;
                     activeIcons[i].isHit = true;
                     _audioSource.volume = 1.0f;
-                    power = Mathf.Min(power + powerIncrease, 1.0f);
+                    power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
+                    if(power > .01f)
+                    {
+                        _hasPower = true;
+                    }
+
+                    if(Mathf.Approximately(power, 1.0f))
+                    {
+                        mOnMaxPowerHit.Invoke();
+                    }
+
                     break;
                 }
             }
-
-            /*
-                        if (inHitWindow)
-                        {
-
-                        }*/
         }
 
         public void Play()
@@ -219,8 +280,9 @@ namespace NatureLad
 
         void UpdateBeat()
         {
+            bool shouldSpawn = _wantedIconSize > minIconSize || spawnIconIfMin;//Mathf.Approximately(Mathf.Max(_wantedIconSize, minIconSize), minIconSize)
             int wantedIdx = (_idx + beatPreview) % (sequence.Length / 2);
-            if (visualIcon != null && sequence[ wantedIdx, 0])
+            if (visualIcon != null && sequence[ wantedIdx, 0] && shouldSpawn)
             {
                 RectTransform icon = Instantiate(visualIcon, lineParent);
                 icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
@@ -228,13 +290,20 @@ namespace NatureLad
             }
         }
 
-
         void OnGUI()
         {
             GUI.Label(new Rect(10, 10, 200, 20), _timer.ToString());
             GUI.Label(new Rect(10, 70, 200, 20), _idx.ToString());
             GUI.Label(new Rect(10, 30, 200, 20), _inHitWindow.ToString());
             GUI.Label(new Rect(10, 50, 200, 20), _inReleaseWindow.ToString());
+        }
+        void OnDrawGizmosSelected()
+        {
+            // Draw a yellow sphere at the transform's position
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, proximityRangeMin);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, proximityRangeMax);
         }
 
         private static bool DrawCell(Rect rect, bool value)
@@ -253,6 +322,11 @@ namespace NatureLad
                     : new Color(0, 0, 0, .5f));
 
             return value;
+        }
+
+        public void SetIgnoreProximity(bool v)
+        {
+            ignoreProximity = v;
         }
     }
 }

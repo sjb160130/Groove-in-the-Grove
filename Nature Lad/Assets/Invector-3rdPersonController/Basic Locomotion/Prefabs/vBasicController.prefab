@@ -1919,7 +1919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 1
-  selectedToolbar: 5
+  selectedToolbar: 1
   _isDead: 0
   _currentHealth: 0
   isImmortal: 0
@@ -1933,6 +1933,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _onDead:
+    m_PersistentCalls:
+      m_Calls: []
+  onChangeHealth:
+    m_PersistentCalls:
+      m_Calls: []
+  onResetHealth:
     m_PersistentCalls:
       m_Calls: []
   deathBy: 0
@@ -2039,6 +2045,7 @@ MonoBehaviour:
   timeToRollAgain: 0.75
   groundCheckMethod: 1
   useSnapGround: 1
+  snapPower: 0.5
   groundMinDistance: 0.1
   groundMaxDistance: 0.5
   slopeLimit: 45
@@ -2053,7 +2060,6 @@ MonoBehaviour:
   inputSmooth: {x: 0, y: 0, z: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   matchTarget: {fileID: 0}
-  useInstance: 1
 --- !u!114 &114000013620396000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,7 +2075,6 @@ MonoBehaviour:
   openCloseEvents: 0
   openCloseWindow: 0
   selectedToolbar: 0
-  lockInput: 0
   unlockCursorOnStart: 0
   showCursorOnStart: 0
   horizontalInput:
@@ -2084,7 +2089,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   verticallInput:
     useInput: 1
@@ -2098,7 +2104,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   jumpInput:
     useInput: 1
@@ -2112,7 +2119,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   rollInput:
     useInput: 1
@@ -2126,7 +2134,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   strafeInput:
     useInput: 1
@@ -2140,7 +2149,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   sprintInput:
     useInput: 1
@@ -2154,7 +2164,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   crouchInput:
     useInput: 1
@@ -2168,8 +2179,10 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
+  lockInput: 0
   lockCameraInput: 0
   ignoreCameraRotation: 0
   rotateCameraXInput:
@@ -2184,7 +2197,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   rotateCameraYInput:
     useInput: 1
@@ -2198,7 +2212,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   cameraZoomInput:
     useInput: 1
@@ -2212,7 +2227,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   OnLockCamera:
     m_PersistentCalls:
@@ -2300,9 +2316,13 @@ MonoBehaviour:
   openCloseEvents: 0
   openCloseWindow: 0
   selectedToolbar: 0
+  startRagdolled: 0
+  debugTimeToStayRagdolled: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 1
+  keepRagdolled: 0
+  _ignoreGetUpAnimation: 0
   removePhysicsAfterDie: 1
   disableColliders: 1
   collisionSource: {fileID: 0}
@@ -2408,6 +2428,12 @@ MonoBehaviour:
   isLockTriggerEvents: 0
   colliders: []
   mainCamera: {fileID: 0}
+  OnEnterTriggerAction:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitTriggerAction:
+    m_PersistentCalls:
+      m_Calls: []
   OnStartAction:
     m_PersistentCalls:
       m_Calls: []
@@ -2455,7 +2481,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   enterInput:
     useInput: 1
@@ -2469,7 +2496,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   exitInput:
     useInput: 1
@@ -2483,7 +2511,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   fastClimbInput:
     useInput: 1
@@ -2497,7 +2526,8 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
   slideDownInput:
     useInput: 1
@@ -2511,69 +2541,19 @@ MonoBehaviour:
     joystickAxisInvert: 0
     keyboardAxisInvert: 0
     mobileAxisInvert: 0
-    buttomTimer: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
-  enterRotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  exitRotationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0.001941203
-      tangentMode: 65
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5635136
-      value: 0.0010938942
-      inSlope: 0.001941203
-      outSlope: 0.9185821
-      tangentMode: 5
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
   OnEnterLadder:
     m_PersistentCalls:
       m_Calls: []
   OnExitLadder:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnterTriggerLadder:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitTriggerLadder:
     m_PersistentCalls:
       m_Calls: []
   debugMode: 0
@@ -3751,6 +3731,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3768,6 +3750,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -3969,6 +3952,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3986,6 +3971,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4278,6 +4264,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4295,6 +4283,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -4527,6 +4516,8 @@ SkinnedMeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4544,6 +4535,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
