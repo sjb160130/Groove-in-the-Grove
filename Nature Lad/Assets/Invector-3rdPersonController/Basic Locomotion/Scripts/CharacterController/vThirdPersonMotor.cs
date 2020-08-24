@@ -1130,7 +1130,8 @@ namespace Invector.vCharacterController
                 Gizmos.DrawWireSphere(ray1.GetPoint((headDetect - (colliderRadius * 0.1f))), colliderRadius * 0.9f);
                 // debug stopmove            
                 Ray ray3 = new Ray(transform.position + new Vector3(0, stopMoveHeight, 0), transform.forward);
-                Debug.DrawRay(ray3.origin, ray3.direction * (_capsuleCollider.radius + stopMoveDistance), Color.blue);
+                if(_capsuleCollider)
+                    Debug.DrawRay(ray3.origin, ray3.direction * (_capsuleCollider.radius + stopMoveDistance), Color.blue);
                 // debug slopelimit            
                 Ray ray4 = new Ray(transform.position + new Vector3(0, colliderHeight / 3.5f, 0), transform.forward);
                 Debug.DrawRay(ray4.origin, ray4.direction * 1f, Color.cyan);

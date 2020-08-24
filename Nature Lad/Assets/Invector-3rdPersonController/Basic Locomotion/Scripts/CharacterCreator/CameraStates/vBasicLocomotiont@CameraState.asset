@@ -25,8 +25,8 @@ MonoBehaviour:
     smoothDamp: 2
     xMouseSensitivity: 3
     yMouseSensitivity: 3
-    yMinLimit: 31.728323
-    yMaxLimit: 31.728323
+    yMinLimit: 38.73221
+    yMaxLimit: 38.73221
     xMinLimit: -360
     xMaxLimit: 360
     rotationOffSet: {x: 6, y: 0, z: 0}
@@ -98,8 +98,8 @@ MonoBehaviour:
     smoothDamp: 4
     xMouseSensitivity: 0
     yMouseSensitivity: 0
-    yMinLimit: 80
-    yMaxLimit: 80
+    yMinLimit: 40
+    yMaxLimit: 40
     xMinLimit: -360
     xMaxLimit: 360
     rotationOffSet: {x: 6, y: 0, z: 0}
