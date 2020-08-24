@@ -10891,7 +10891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &405487996
 Transform:
   m_ObjectHideFlags: 0
@@ -21514,7 +21514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &795685336
 Transform:
   m_ObjectHideFlags: 0
@@ -23654,6 +23654,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 853813948}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &857828529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535380315112082, guid: 3fce99634b729594d89ee5e872b73dff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1455159357}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &857828533
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857828529}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 2a1e0b5f6f56676439b62c1e76f3b4c8, type: 3}
 --- !u!1001 &858903505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28787,7 +28807,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1039932089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31284,6 +31304,8 @@ GameObject:
   - component: {fileID: 1109431702}
   - component: {fileID: 1109431701}
   - component: {fileID: 1109431705}
+  - component: {fileID: 1109431706}
+  - component: {fileID: 5437884500870720}
   m_Layer: 0
   m_Name: frog
   m_TagString: Untagged
@@ -31360,13 +31382,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109431700}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.75, y: 1.37, z: 2.57}
+  m_LocalRotation: {x: -0, y: -0.7933059, z: -0, w: 0.60882336}
+  m_LocalPosition: {x: 17.41, y: 2.77, z: 23.44}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -104.991, z: 0}
 --- !u!114 &1109431705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31384,6 +31406,501 @@ MonoBehaviour:
   damp: 2
   maxSpeed: 4
   radius: 0.25
+--- !u!114 &1109431706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109431700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5bceda8de3dc8448b2228232223f720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: sequence
+      Entry: 7
+      Data: 0|System.Boolean[,], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 128
+    - Name: ranks
+      Entry: 1
+      Data: 64|2
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  mOnMaxPowerHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109431705}
+        m_TargetAssemblyTypeName: NatureLad.Follower, Assembly-CSharp
+        m_MethodName: Follow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1109431706}
+        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
+        m_MethodName: SetIgnoreProximity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  mOnPowerDrained:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1109431705}
+        m_TargetAssemblyTypeName: NatureLad.Follower, Assembly-CSharp
+        m_MethodName: StopFollowing
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1109431706}
+        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
+        m_MethodName: SetIgnoreProximity
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  power: 0
+  attenuation: 0.05
+  powerIncrease: 0.05
+  ignoreProximity: 0
+  proximityRangeMin: 12
+  proximityRangeMax: 35
+  progression:
+  - {fileID: 8300000, guid: db85f5a3e75309c4cb1c3bdb98018b7a, type: 3}
+  lineParent: {fileID: 1586959465}
+  visualIcon: {fileID: 8129822352612202226, guid: acd400b610f86e44c9adcf9040847ea9,
+    type: 3}
+  lineWidth: 1500
+  lineOffset: 100
+  beatAccuracy: 1
+  beatOffset: 0.15
+  beatPreview: 24
+  spawnIconIfMin: 0
+  minIconSize: 0.3
+  _wantedIconSize: 0
+  _aggregatePower: 0
+  activeIcons: []
 --- !u!1001 &1109435706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32184,7 +32701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409158, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 409158, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
       propertyPath: m_LocalRotation.z
@@ -32192,7 +32709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409158, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.00000028088027
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 409158, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
       propertyPath: m_RootOrder
@@ -32204,16 +32721,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 409158, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 179.99998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 409158, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1863536186, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
-      propertyPath: OnPlayAnimation.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: OnPlayAnimation.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863536186, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
+      propertyPath: OnPlayAnimation.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1629884519}
+    - target: {fileID: 1863536186, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
+      propertyPath: OnPlayAnimation.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NatureLad.RhythmTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863536186, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
+      propertyPath: OnPlayAnimation.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4129535700874356643, guid: 39ed0ebd0d0eb49428c431110a557840,
+        type: 3}
+      propertyPath: OnPlayAnimation.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1109431706}
+    - target: {fileID: 4129535700874356643, guid: 39ed0ebd0d0eb49428c431110a557840,
+        type: 3}
+      propertyPath: animationClip
+      value: Trombone
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ed0ebd0d0eb49428c431110a557840, type: 3}
 --- !u!1001 &1133314124
@@ -46611,7 +47150,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db85f5a3e75309c4cb1c3bdb98018b7a, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0
   m_Pitch: 1
   Loop: 1
@@ -46745,6 +47284,36 @@ MonoBehaviour:
       Data: true
     - Name: 
       Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 5
       Data: false
     - Name: 
       Entry: 5
@@ -46763,37 +47332,7 @@ MonoBehaviour:
       Data: true
     - Name: 
       Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
       Data: true
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 5
-      Data: true
-    - Name: 
-      Entry: 5
-      Data: false
     - Name: 
       Entry: 5
       Data: true
@@ -46811,7 +47350,7 @@ MonoBehaviour:
       Data: true
     - Name: 
       Entry: 5
-      Data: false
+      Data: true
     - Name: 
       Entry: 5
       Data: false
@@ -47130,9 +47669,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  mOnMaxPowerHit:
+    m_PersistentCalls:
+      m_Calls: []
+  mOnPowerDrained:
+    m_PersistentCalls:
+      m_Calls: []
   power: 0
   attenuation: 0.1
   powerIncrease: 0.1
+  ignoreProximity: 1
+  proximityRangeMin: 0.001
+  proximityRangeMax: 0.002
   progression:
   - {fileID: 8300000, guid: db85f5a3e75309c4cb1c3bdb98018b7a, type: 3}
   lineParent: {fileID: 555540089}
@@ -47143,6 +47691,10 @@ MonoBehaviour:
   beatAccuracy: 1
   beatOffset: 0.15
   beatPreview: 24
+  spawnIconIfMin: 1
+  minIconSize: 0.5
+  _wantedIconSize: 0
+  _aggregatePower: 0
   activeIcons: []
 --- !u!1001 &1631981836
 PrefabInstance:
@@ -47826,7 +48378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1657585192
 Transform:
   m_ObjectHideFlags: 0
@@ -51524,6 +52076,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1781811541}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1783718239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1290192323667180, guid: 387d93711c1d03a48b083591256c560c,
+    type: 3}
+  m_PrefabInstance: {fileID: 201366846}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1783718242
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783718239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 6d0246924bf2bfd4583cbe081c6d5ea6, type: 3}
 --- !u!1001 &1785192819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57301,7 +57873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1956660802
 Transform:
   m_ObjectHideFlags: 0
@@ -62631,6 +63203,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2144681666}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &5437884500870720
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109431700}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: e0e8eff701d0572409fe02a5e6bb2a8d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &19503431554729912
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63004,6 +63672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: trombone_icon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129822352612202225, guid: acd400b610f86e44c9adcf9040847ea9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8129822352612202226, guid: acd400b610f86e44c9adcf9040847ea9,
         type: 3}
