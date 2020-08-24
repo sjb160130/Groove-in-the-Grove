@@ -40,7 +40,9 @@ namespace NatureLad
             Vector3 delta = Vector3.zero;
             Vector3 wantedVelocity = Vector3.zero;
             Vector3 targetPosition = _startingPosition;
-            
+
+            float distanceToTarget = 0f;
+
             if(target && _isFollowing)
             {
                 // Check if character is off screen, if so, teleport them closer
@@ -65,7 +67,8 @@ namespace NatureLad
                 targetVelocity = wantedVelocity;
             }
 
-            wantedVelocity = Vector3.ClampMagnitude(wantedVelocity, maxSpeed * Time.fixedDeltaTime) * Mathf.Min( targetVelocity.magnitude / Time.fixedDeltaTime, 1f);
+            distanceToTarget = wantedVelocity.magnitude;
+            wantedVelocity = Vector3.ClampMagnitude(wantedVelocity, maxSpeed * Time.fixedDeltaTime) * Mathf.Min( distanceToTarget > radius*4f ? 1.0f : (targetVelocity.magnitude / Time.fixedDeltaTime), 1f);
             velocity = Vector3.Lerp( velocity, wantedVelocity, Time.fixedDeltaTime * damp);
 
             transform.position = transform.position + velocity;

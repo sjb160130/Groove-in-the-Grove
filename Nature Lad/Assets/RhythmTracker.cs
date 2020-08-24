@@ -28,9 +28,10 @@ namespace NatureLad
 
     public class RhythmTracker : SerializedMonoBehaviour
     {
-/*        [TableMatrix(DrawElementMethod = "DrawCell")]
-        public bool[,] sequence = new bool[64, 2];*/
+        /*        [TableMatrix(DrawElementMethod = "DrawCell")]
+                public bool[,] sequence = new bool[64, 2];*/
 
+        [ListDrawerSettings(NumberOfItemsPerPage = 16, ShowIndexLabels = true)]
         public bool[] pressSequence = new bool[64];
 
         public UnityEvent mOnMaxPowerHit = new UnityEvent();
@@ -104,7 +105,10 @@ namespace NatureLad
         [SerializeField]
         private float _aggregatePower = 0f;
 
+        [SerializeField]
         public List<BeatIcon> activeIcons = new List<BeatIcon>();
+        [SerializeField]
+        public List<BeatIcon> inactiveIcons = new List<BeatIcon>();
 
         private GameObject _player;
 
@@ -173,14 +177,14 @@ namespace NatureLad
 
                 if (activeIcons[i].icon.anchoredPosition3D.x < 0)
                 {
-                    GameObject.Destroy(activeIcons[i].icon.gameObject);
+                    //GameObject.Destroy(activeIcons[i].icon.gameObject);
+                    activeIcons[i].icon.gameObject.SetActive(false);
+                    inactiveIcons.Add(activeIcons[i]);
                     activeIcons.RemoveAt(i);
                 }
             }
 
-
-
-            power = Mathf.Lerp(power, 0f, Time.deltaTime * attenuation);
+            power = Mathf.Max(power - attenuation * Time.deltaTime, 0.0f);
 
             if(power < .01 && _hasPower)
             {
@@ -244,9 +248,11 @@ namespace NatureLad
                 //Debug.Log(delta);
                 if (delta < _accuracyLength)
                 {
-                    Image img = activeIcons[i].icon.gameObject.GetComponent<Image>();
-                    img.color = Color.green;
-                    activeIcons[i].icon.localScale = Vector3.one * 1.25f;
+                    //Image img = activeIcons[i].icon.gameObject.GetComponent<Image>();
+                    //img.color = Color.green;
+                    Animator anm = activeIcons[i].icon.gameObject.GetComponent<Animator>();
+                    anm.SetTrigger("hit");
+                    //activeIcons[i].icon.localScale = Vector3.one * 1.25f;
                     activeIcons[i].isHit = true;
                     _audioSource.volume = 1.0f;
                     power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
@@ -286,9 +292,22 @@ namespace NatureLad
             int wantedIdx = (_idx + beatPreview) % pressSequence.Length;
             if (visualIcon != null && pressSequence[ wantedIdx] && shouldSpawn)
             {
-                RectTransform icon = Instantiate(visualIcon, lineParent);
-                icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
-                activeIcons.Add(new BeatIcon(icon, wantedIdx));
+                if(inactiveIcons.Count == 0)
+                {
+                    RectTransform icon = Instantiate(visualIcon, lineParent);
+                    icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
+                    activeIcons.Add(new BeatIcon(icon, wantedIdx));
+                }
+                else
+                {
+                    BeatIcon beatIcon = inactiveIcons[0];
+                    inactiveIcons.RemoveAt(0);
+                    beatIcon.icon.gameObject.SetActive(true);
+                    beatIcon.isHit = false;
+                    beatIcon.idx = wantedIdx;
+                    beatIcon.icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
+                    activeIcons.Add(beatIcon);
+                }
             }
         }
 
