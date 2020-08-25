@@ -36,6 +36,8 @@ namespace NatureLad
 
         public UnityEvent mOnMaxPowerHit = new UnityEvent();
         public UnityEvent mOnPowerDrained = new UnityEvent();
+        public UnityEvent mOnHit = new UnityEvent();
+        public UnityEvent mOnBeat = new UnityEvent();
 
         [SerializeField]
         private float power = 0f;
@@ -160,7 +162,7 @@ namespace NatureLad
 
             // Calculate proximity power
             proximityPower = 0f;
-            if (_player && power < .1f )
+            if (_player)
             {
                 float distance = (_player.transform.position - transform.position).magnitude;
                 proximityPower = 1f - ((Mathf.Clamp(distance, proximityRangeMin, proximityRangeMax) - proximityRangeMin) / (proximityRangeMax - proximityRangeMin));
@@ -290,6 +292,8 @@ namespace NatureLad
                         _isFollowing = true;
                     }
 
+                    mOnHit.Invoke();
+
                     break;
                 }
             }
@@ -314,9 +318,15 @@ namespace NatureLad
         {
             bool shouldSpawn = _wantedIconSize > minIconSize || spawnIconIfMin;//Mathf.Approximately(Mathf.Max(_wantedIconSize, minIconSize), minIconSize)
             int wantedIdx = (_idx + beatPreview) % pressSequence.Length;
+
+            if( pressSequence[_idx] )
+            {
+                mOnBeat.Invoke();
+            }
+
             if (visualIcon != null && pressSequence[ wantedIdx] && shouldSpawn)
             {
-                if(inactiveIcons.Count == 0)
+                if (inactiveIcons.Count == 0)
                 {
                     RectTransform icon = Instantiate(visualIcon, lineParent);
                     icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
@@ -333,6 +343,7 @@ namespace NatureLad
                     activeIcons.Add(beatIcon);
                 }
             }
+
         }
 
         void OnGUI()

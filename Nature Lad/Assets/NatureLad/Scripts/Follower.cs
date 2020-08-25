@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using UnityEditor.UIElements;
 using UnityEngine;
 
@@ -8,11 +9,16 @@ namespace NatureLad
 {
     public class Follower : MonoBehaviour
     {
+        [SerializeField]
+        private FollowManager followManager;
         public Transform target;
+
         public float minDistance = 1f;
 
         public float damp = 1f;
         public float maxSpeed = 4f;
+
+        public float returnHomeSpeed = 1f;
 
         public float radius = .25f;
 
@@ -77,7 +83,7 @@ namespace NatureLad
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(transform.position + Vector3.up*radius, Vector3.down, out hit, 50f))
+            if (Physics.Raycast(transform.position, Vector3.down, out hit, 50f))
             {
                 Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
                 //Debug.Log("Did Hit: " + hit.collider);
@@ -96,16 +102,32 @@ namespace NatureLad
             target = t;
         }
 
-        [Button("Activate")]
+        [Button("Follow")]
         public void Follow()
         {
+            if(_isFollowing)
+            {
+                return;
+            }
             _isFollowing = true;
+            if(followManager)
+            {
+                followManager.Follow(this);
+            }
         }
 
-        [Button("Deactivate")]
+        [Button("Stop Following")]
         public void StopFollowing()
         {
+            if (!_isFollowing)
+            {
+                return;
+            }
             _isFollowing = false;
+            if (followManager)
+            {
+                followManager.Unfollow(this);
+            }
         }
     }
 }
