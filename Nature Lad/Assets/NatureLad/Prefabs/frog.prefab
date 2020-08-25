@@ -208,7 +208,7 @@ MonoBehaviour:
   beatOffset: 0.15
   beatPreview: 24
   spawnIconIfMin: 0
-  minIconSize: 0.3
+  minIconSize: 0.5
   _wantedIconSize: 0
   _aggregatePower: 0
   activeIcons: []

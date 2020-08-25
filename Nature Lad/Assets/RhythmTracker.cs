@@ -113,6 +113,9 @@ namespace NatureLad
         private GameObject _player;
 
         private bool _hasPower;
+        [SerializeField]
+        private bool _alwaysFollow;
+        private bool _isFollowing;
 
         private void Start()
         {
@@ -121,6 +124,8 @@ namespace NatureLad
             {
                 PrecalculateData();
             }
+
+            _isFollowing = _alwaysFollow;
 
             Play();
 
@@ -133,6 +138,8 @@ namespace NatureLad
         // Update is called once per frame
         void Update()
         {
+
+            // process timers
             if(_audioSource.time < _timer)
             {
                 _timer -= _audioSource.clip.length;
@@ -140,12 +147,7 @@ namespace NatureLad
             _deltaAudioTime = _audioSource.time - _timer;
             _timer = _audioSource.time;
 
-            //float delta = _timer - beatOffset;
-            //if(delta < 0f)
-            //{
-            //    _timer = _length + delta;
-            //}
-
+            // on beat change
             int currentIdx = (int)Mathf.Floor(_timer / _beatLength);
             if (_idx != currentIdx)
             {
@@ -156,15 +158,24 @@ namespace NatureLad
             _inHitWindow = pressSequence[_idx];
             _inReleaseWindow = pressSequence[_idx];
 
-            if (_player)
+            // Calculate proximity power
+            proximityPower = 0f;
+            if (_player && power < .1f )
             {
                 float distance = (_player.transform.position - transform.position).magnitude;
                 proximityPower = 1f - ((Mathf.Clamp(distance, proximityRangeMin, proximityRangeMax) - proximityRangeMin) / (proximityRangeMax - proximityRangeMin));
             }
 
+            // Calculate aggregate power and icon size
             _aggregatePower = Mathf.Max(power, proximityPower);
-            _wantedIconSize = Mathf.Lerp(minIconSize, 1f, _aggregatePower);
 
+            _wantedIconSize = Mathf.Lerp(minIconSize, 1f, power);
+            if (!_isFollowing)
+            {
+                _wantedIconSize = Mathf.Max((proximityPower >= .95f ? minIconSize + .01f : 0f), _wantedIconSize);
+            }
+
+            // Move and scale icons
             for ( int i = 0; i < activeIcons.Count; i++)
             {
                 Vector3 wantedPosition = activeIcons[i].icon.anchoredPosition3D;
@@ -177,21 +188,33 @@ namespace NatureLad
 
                 if (activeIcons[i].icon.anchoredPosition3D.x < 0)
                 {
-                    //GameObject.Destroy(activeIcons[i].icon.gameObject);
                     activeIcons[i].icon.gameObject.SetActive(false);
                     inactiveIcons.Add(activeIcons[i]);
                     activeIcons.RemoveAt(i);
                 }
             }
 
+            // attenuate power
             power = Mathf.Max(power - attenuation * Time.deltaTime, 0.0f);
 
-            if(power < .01 && _hasPower)
+            // change properties based on power
+            // and invoke events
+            if (power < .01f)
             {
-                _hasPower = false;
-                mOnPowerDrained.Invoke();
+                if(_hasPower)
+                {
+                    _hasPower = false;
+                    mOnPowerDrained.Invoke();
+                }
+
+
+                if (_isFollowing && !_alwaysFollow)
+                {
+                    _isFollowing = false;
+                }
             }
 
+            // adjust volume based on aggregate power
             _audioSource.volume = Mathf.Lerp(_audioSource.volume, _aggregatePower, Time.deltaTime*2f);
         }
 
@@ -264,6 +287,7 @@ namespace NatureLad
                     if(Mathf.Approximately(power, 1.0f))
                     {
                         mOnMaxPowerHit.Invoke();
+                        _isFollowing = true;
                     }
 
                     break;

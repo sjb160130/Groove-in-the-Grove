@@ -16,12 +16,14 @@ namespace NatureLad
 
         public float radius = .25f;
 
+        [SerializeField]
         private Vector3 velocity = Vector3.zero;
 
         private Vector3 targetVelocity;
         private Vector3 _lastTargetPosition;
 
-        private bool _isFollowing;
+        [SerializeField]
+        private bool _isFollowing = false;
 
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
@@ -75,10 +77,10 @@ namespace NatureLad
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(transform.position + Vector3.up*1f, transform.TransformDirection(Vector3.down), out hit, 50f))
+            if (Physics.Raycast(transform.position + Vector3.up*radius, Vector3.down, out hit, 50f))
             {
-                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.yellow);
-                //Debug.Log("Did Hit");
+                Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
+                //Debug.Log("Did Hit: " + hit.collider);
 
                 transform.position = hit.point + Vector3.up*radius;
             }

@@ -10922,6 +10922,8 @@ MonoBehaviour:
   damp: 2
   maxSpeed: 4
   radius: 0.25
+  velocity: {x: 0, y: 0, z: 0}
+  _isFollowing: 0
 --- !u!135 &405487998
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -21659,6 +21661,8 @@ MonoBehaviour:
   damp: 2
   maxSpeed: 4
   radius: 0.25
+  velocity: {x: 0, y: 0, z: 0}
+  _isFollowing: 0
 --- !u!135 &795685338
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -29125,6 +29129,8 @@ MonoBehaviour:
   damp: 2
   maxSpeed: 4
   radius: 0.25
+  velocity: {x: 0, y: 0, z: 0}
+  _isFollowing: 0
 --- !u!135 &1039932090
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -47525,6 +47531,8 @@ MonoBehaviour:
   damp: 2
   maxSpeed: 4
   radius: 0.25
+  velocity: {x: 0, y: 0, z: 0}
+  _isFollowing: 0
 --- !u!135 &1657585194
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -57027,6 +57035,8 @@ MonoBehaviour:
   damp: 2
   maxSpeed: 4
   radius: 0.25
+  velocity: {x: 0, y: 0, z: 0}
+  _isFollowing: 0
 --- !u!135 &1956660804
 SphereCollider:
   m_ObjectHideFlags: 0
