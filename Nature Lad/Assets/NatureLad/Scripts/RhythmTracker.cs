@@ -53,6 +53,7 @@ namespace NatureLad
         [SerializeField]
         private float proximityRangeMax = 20f;
 
+        [SerializeField]
         private float proximityPower = 0f;
 
         [SerializeField]
