@@ -1483,6 +1483,7 @@ MonoBehaviour:
   maxSpeed: 4
   returnHomeSpeed: 1
   radius: 0.25
+  animator: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   _isFollowing: 0
 --- !u!135 &405487998
@@ -2515,6 +2516,7 @@ MonoBehaviour:
   maxSpeed: 4
   returnHomeSpeed: 1
   radius: 0.25
+  animator: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   _isFollowing: 0
 --- !u!135 &795685338
@@ -3698,6 +3700,7 @@ MonoBehaviour:
   maxSpeed: 4
   returnHomeSpeed: 1
   radius: 0.25
+  animator: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   _isFollowing: 0
 --- !u!135 &1039932090
@@ -6117,6 +6120,7 @@ MonoBehaviour:
   maxSpeed: 4
   returnHomeSpeed: 1
   radius: 0.25
+  animator: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   _isFollowing: 0
 --- !u!135 &1657585194
@@ -6936,6 +6940,7 @@ MonoBehaviour:
   maxSpeed: 4
   returnHomeSpeed: 1
   radius: 0.25
+  animator: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   _isFollowing: 0
 --- !u!135 &1956660804
@@ -7662,6 +7667,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: frog
+      objectReference: {fileID: 0}
+    - target: {fileID: 8569356079606650079, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0, type: 3}

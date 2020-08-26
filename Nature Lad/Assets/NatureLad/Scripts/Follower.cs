@@ -1,6 +1,7 @@
 ﻿using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -23,10 +24,15 @@ namespace NatureLad
         public float radius = .25f;
 
         [SerializeField]
+        private Animator animator;
+
+        [SerializeField]
         private Vector3 velocity = Vector3.zero;
 
         private Vector3 targetVelocity;
         private Vector3 _lastTargetPosition;
+        private Vector3 _lastPosition;
+        private Vector3 _velocity = Vector3.zero;
 
         [SerializeField]
         private bool _isFollowing = false;
@@ -39,6 +45,7 @@ namespace NatureLad
         {
             _startingPosition = transform.position;
             _startingRotation = transform.rotation;
+            _lastPosition = transform.position;
         }
 
         // Update is called once per frame
@@ -50,6 +57,7 @@ namespace NatureLad
             Vector3 targetPosition = _startingPosition;
 
             float distanceToTarget = 0f;
+            Quaternion wantedRotation = transform.rotation;
 
             if(target && _isFollowing)
             {
@@ -68,15 +76,27 @@ namespace NatureLad
 
                 targetPosition = (target.position - (delta.normalized * minDistance));
                 wantedVelocity = targetPosition - transform.position;
+
+                Vector3 lookAtVector = target.position - transform.position;
+                lookAtVector.y = 0f;
+                lookAtVector.Normalize();
+
+                Quaternion velocityRotation = Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.z).normalized, Vector3.up);
+                Quaternion lookAtRotation = Quaternion.LookRotation(lookAtVector, Vector3.up);
+                wantedRotation = Quaternion.Slerp(lookAtRotation, velocityRotation, _velocity.magnitude);
             }
             else
             {
                 wantedVelocity = _startingPosition - transform.position;
                 targetVelocity = wantedVelocity;
+
+                wantedRotation = _velocity.magnitude > .1f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.x).normalized, Vector3.up) : _startingRotation;
             }
+            
+            transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, Time.fixedDeltaTime * 2f);
 
             distanceToTarget = wantedVelocity.magnitude;
-            wantedVelocity = Vector3.ClampMagnitude(wantedVelocity, maxSpeed * Time.fixedDeltaTime) * Mathf.Min( distanceToTarget > radius*4f ? 1.0f : (targetVelocity.magnitude / Time.fixedDeltaTime), 1f);
+            wantedVelocity = Vector3.ClampMagnitude(wantedVelocity, ( (_isFollowing ? maxSpeed : returnHomeSpeed) * Time.fixedDeltaTime)) * Mathf.Min( distanceToTarget > radius*4f ? 1.0f : (targetVelocity.magnitude / Time.fixedDeltaTime), 1f);
             velocity = Vector3.Lerp( velocity, wantedVelocity, Time.fixedDeltaTime * damp);
 
             transform.position = transform.position + velocity;
@@ -96,6 +116,16 @@ namespace NatureLad
                 //Debug.Log("Did not Hit");
             }
             //transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime);
+
+            _velocity = transform.position - _lastPosition;
+
+            if (animator != null)
+            {
+                animator.SetFloat("speed", _velocity.magnitude / Time.fixedDeltaTime);
+            }
+
+            _lastPosition = transform.position;
+
         }
         public void SetTarget(Transform t)
         {
