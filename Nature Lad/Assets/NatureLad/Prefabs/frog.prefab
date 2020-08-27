@@ -113,9 +113,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followManager: {fileID: 0}
   target: {fileID: 0}
-  minDistance: 2.5
-  damp: 2
-  maxSpeed: 4
+  minDistance: 0.5
+  damp: 10
+  maxSpeed: 4.5
   returnHomeSpeed: 1
   radius: 0.3
   animator: {fileID: 8569356079606650079}
