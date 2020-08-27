@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followManager: {fileID: 0}
   target: {fileID: 0}
-  minDistance: 1.5
+  minDistance: 2.5
   damp: 2
   maxSpeed: 4
   returnHomeSpeed: 1
@@ -219,8 +219,8 @@ MonoBehaviour:
   attenuation: 0.01
   powerIncrease: 0.2
   ignoreProximity: 0
-  proximityRangeMin: 12
-  proximityRangeMax: 35
+  proximityRangeMin: 9.85
+  proximityRangeMax: 19.4
   proximityPower: 0
   progression:
   - {fileID: 8300000, guid: 92f6eae537e56c24aadd636d8cdb338b, type: 3}
@@ -232,6 +232,7 @@ MonoBehaviour:
   beatAccuracy: 1
   beatOffset: 0.15
   beatPreview: 24
+  _animator: {fileID: 8569356079606650079}
   spawnIconIfMin: 0
   minIconSize: 0.5
   _wantedIconSize: 0
@@ -423,6 +424,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22100000, guid: f2edfafb741f6ce409dcf51b151e0a1b,
         type: 2}
+    - target: {fileID: 5866666021909216657, guid: 6a0866660615c4a4aafd191b207971dc,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a0866660615c4a4aafd191b207971dc, type: 3}
 --- !u!4 &2309320932863512229 stripped

@@ -99,7 +99,14 @@ namespace NatureLad
             wantedVelocity = Vector3.ClampMagnitude(wantedVelocity, ( (_isFollowing ? maxSpeed : returnHomeSpeed) * Time.fixedDeltaTime)) * Mathf.Min( distanceToTarget > radius*4f ? 1.0f : (targetVelocity.magnitude / Time.fixedDeltaTime), 1f);
             velocity = Vector3.Lerp( velocity, wantedVelocity, Time.fixedDeltaTime * damp);
 
-            transform.position = transform.position + velocity;
+            float animMoveMult = 1.0f;
+            if (animator != null)
+            {
+                animator.SetFloat("speed", _velocity.magnitude / Time.fixedDeltaTime);
+                animMoveMult = animator.GetFloat("move");
+            }
+
+            transform.position = transform.position + (velocity * animMoveMult);
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
@@ -118,11 +125,6 @@ namespace NatureLad
             //transform.position = Vector3.Lerp(transform.position, target.position, Time.deltaTime);
 
             _velocity = transform.position - _lastPosition;
-
-            if (animator != null)
-            {
-                animator.SetFloat("speed", _velocity.magnitude / Time.fixedDeltaTime);
-            }
 
             _lastPosition = transform.position;
 
