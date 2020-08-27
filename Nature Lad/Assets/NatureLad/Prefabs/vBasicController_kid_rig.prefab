@@ -4999,7 +4999,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   actionTag: Action
-  useRootMotion: 1
+  useRootMotion: 0
   debugMode: 0
   triggerAction: {fileID: 0}
   _playingAnimation: 0
@@ -5454,7 +5454,7 @@ MonoBehaviour:
   actionInput:
     useInput: 1
     isAxisInUse: 0
-    keyboard: Q
+    keyboard: Space
     keyboardAxis: 0
     joystick: Y
     joystickAxis: 0
@@ -5466,7 +5466,7 @@ MonoBehaviour:
     timeButtonWasPressed: 0
     lastTimeTheButtonWasPressed: 0
     inButtomTimer: 0
-  animationClip: Trombone
+  animationClip: drum
   animationEnd: 0.8
   OnPlayAnimation:
     m_PersistentCalls:
@@ -5504,7 +5504,107 @@ MonoBehaviour:
   actionInput:
     useInput: 1
     isAxisInUse: 0
-    keyboard: E
+    keyboard: Space
+    keyboardAxis: 0
+    joystick: B
+    joystickAxis: 0
+    mobile: A
+    mobileAxis: 0
+    joystickAxisInvert: 0
+    keyboardAxisInvert: 0
+    mobileAxisInvert: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
+    inButtomTimer: 0
+  animationClip: drum
+  animationEnd: 0.8
+  OnPlayAnimation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
+        m_MethodName: Hit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEndAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &453514419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395806646940985744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab01fc92c35bcd64681457359b1685c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 1
+  openCloseWindow: 1
+  selectedToolbar: 0
+  actionInput:
+    useInput: 1
+    isAxisInUse: 0
+    keyboard: Space
+    keyboardAxis: 0
+    joystick: X
+    joystickAxis: 0
+    mobile: A
+    mobileAxis: 0
+    joystickAxisInvert: 0
+    keyboardAxisInvert: 0
+    mobileAxisInvert: 0
+    timeButtonWasPressed: 0
+    lastTimeTheButtonWasPressed: 0
+    inButtomTimer: 0
+  animationClip: drum
+  animationEnd: 0.8
+  OnPlayAnimation:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
+        m_MethodName: Hit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnEndAnimation:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &453514420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8395806646940985744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab01fc92c35bcd64681457359b1685c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 1
+  openCloseWindow: 1
+  selectedToolbar: 0
+  actionInput:
+    useInput: 1
+    isAxisInUse: 0
+    keyboard: Space
     keyboardAxis: 0
     joystick: A
     joystickAxis: 0
@@ -5566,7 +5666,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.58
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
@@ -5576,27 +5676,27 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.66304964
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.74857545
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
@@ -5611,7 +5711,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 83.066
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 34f5b435532711a4fb01aad9ff3f4948,
         type: 3}

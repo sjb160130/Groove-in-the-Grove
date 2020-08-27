@@ -82,6 +82,9 @@ namespace NatureLad
         [SerializeField]
         private int beatPreview = 16;
 
+        [SerializeField]
+        private Animator _animator;
+
         private float _timer = 0f;
         private float _lastHit = 0f;
         private float _deltaAudioTime = 0f;
@@ -219,6 +222,11 @@ namespace NatureLad
 
             // adjust volume based on aggregate power
             _audioSource.volume = Mathf.Lerp(_audioSource.volume, _aggregatePower, Time.deltaTime*2f);
+
+            if(_animator)
+            {
+                _animator.SetFloat("time", _audioSource.time/_length);
+            }
         }
 
         void PrecalculateData()

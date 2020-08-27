@@ -22,6 +22,7 @@ namespace NatureLad
 
         public void Follow(Follower f)
         {
+            f.SetTarget(followLine[followLine.Count - 1]);
             followLine.Add(f.transform);
         }
     }

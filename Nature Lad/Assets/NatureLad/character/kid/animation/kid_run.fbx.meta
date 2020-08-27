@@ -21,29 +21,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'pelvis_0_sknJnt' has scale animation that
-      will be discarded.\n\t'spine_1_sknJnt' has translation animation that will
-      be discarded.\n\t'spine_1_sknJnt' has scale animation that will be discarded.\n\t'spine_2_sknJnt'
-      has translation animation that will be discarded.\n\t'spine_2_sknJnt' has scale
-      animation that will be discarded.\n\t'chest_sknJnt' has translation animation
-      that will be discarded.\n\t'chest_sknJnt' has scale animation that will be
-      discarded.\n\t'R_shoulder_sknJnt' has translation animation that will be discarded.\n\t'R_shoulder_sknJnt'
-      has scale animation that will be discarded.\n\t'R_elbow_sknJnt' has translation
-      animation that will be discarded.\n\t'R_elbow_sknJnt' has scale animation that
-      will be discarded.\n\t'R_wrist_sknJnt' has translation animation that will
-      be discarded.\n\t'L_shoulder_sknJnt' has scale animation that will be discarded.\n\t'L_elbow_sknJnt'
-      has scale animation that will be discarded.\n\t'L_pinky_1_sknJnt' has translation
-      animation that will be discarded.\n\t'R_hip_sknJnt' has translation animation
-      that will be discarded.\n\t'R_hip_sknJnt' has scale animation that will be
-      discarded.\n\t'R_knee_sknJnt' has translation animation that will be discarded.\n\t'R_knee_sknJnt'
-      has scale animation that will be discarded.\n\t'R_ankle_sknJnt' has translation
-      animation that will be discarded.\n\t'L_hip_sknJnt' has translation animation
-      that will be discarded.\n\t'L_hip_sknJnt' has scale animation that will be
-      discarded.\n\t'L_knee_sknJnt' has translation animation that will be discarded.\n\t'L_knee_sknJnt'
-      has scale animation that will be discarded.\n\t'L_ankle_sknJnt' has translation
-      animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -71,7 +49,7 @@ ModelImporter:
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -1055,7 +1033,7 @@ ModelImporter:
     feetSpacing: 0
     globalScale: 1
     rootMotionBoneName: 
-    hasTranslationDoF: 0
+    hasTranslationDoF: 1
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 34f5b435532711a4fb01aad9ff3f4948,

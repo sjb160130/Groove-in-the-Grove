@@ -19,31 +19,13 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'L_hip_sknJnt'
-      : position error = 1.813866 mm\n\t'L_knee_sknJnt' : position error = 14.472493
-      mm\n\t'L_ankle_sknJnt' : position error = 12.428956 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'pelvis_0_sknJnt' has scale animation that
-      will be discarded.\n\t'spine_1_sknJnt' has translation animation that will
-      be discarded.\n\t'spine_1_sknJnt' has scale animation that will be discarded.\n\t'spine_2_sknJnt'
-      has scale animation that will be discarded.\n\t'chest_sknJnt' has translation
-      animation that will be discarded.\n\t'chest_sknJnt' has scale animation that
-      will be discarded.\n\t'R_shoulder_sknJnt' has scale animation that will be
-      discarded.\n\t'R_elbow_sknJnt' has scale animation that will be discarded.\n\t'R_wrist_sknJnt'
-      has translation animation that will be discarded.\n\t'L_shoulder_sknJnt' has
-      scale animation that will be discarded.\n\t'L_elbow_sknJnt' has scale animation
+      to improve retargeting quality.\n\t'chest_sknJnt' has translation animation
       that will be discarded.\n\t'R_hip_sknJnt' has translation animation that will
-      be discarded.\n\t'R_hip_sknJnt' has scale animation that will be discarded.\n\t'R_knee_sknJnt'
-      has translation animation that will be discarded.\n\t'R_knee_sknJnt' has scale
-      animation that will be discarded.\n\t'R_ankle_sknJnt' has translation animation
-      that will be discarded.\n\t'L_hip_sknJnt' has translation animation that will
-      be discarded.\n\t'L_hip_sknJnt' has scale animation that will be discarded.\n\t'L_knee_sknJnt'
-      has translation animation that will be discarded.\n\t'L_knee_sknJnt' has scale
-      animation that will be discarded.\n\t'L_ankle_sknJnt' has translation animation
-      that will be discarded.\n"
+      be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -71,7 +53,7 @@ ModelImporter:
       loopTime: 1
       loopBlend: 1
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
