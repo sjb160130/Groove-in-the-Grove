@@ -44,7 +44,7 @@ ModelImporter:
       name: base
       takeName: base
       internalID: 0
-      firstFrame: -10
+      firstFrame: -24
       lastFrame: 0
       wrapMode: 0
       orientationOffsetY: 0
@@ -216,7 +216,7 @@ ModelImporter:
       takeName: drum
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 41
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
