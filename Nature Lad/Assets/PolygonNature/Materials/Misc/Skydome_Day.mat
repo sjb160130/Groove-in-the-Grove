@@ -4,8 +4,9 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Skydome_Day
   m_Shader: {fileID: 4800000, guid: fefd59ec9a96d744aa1f9f12938abd4e, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
@@ -61,14 +62,14 @@ Material:
     - _Distance: 186.6
     - _DstBlend: 10
     - _EmissionScaleUI: 0
-    - _Falloff: 0.9
+    - _Falloff: 1.4
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1
-    - _Offset: -47.7
+    - _Offset: 0
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -79,7 +80,8 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.353}
     - _Color0: {r: 0.22794122, g: 0.778, b: 0.96593857, a: 0}
-    - _ColorBottom: {r: 1, g: 0.9799189, b: 0.86764705, a: 0}
-    - _ColorTop: {r: 0.30147058, g: 0.7976675, b: 1, a: 0}
+    - _ColorBottom: {r: 1, g: 0.30980393, b: 0.41176474, a: 0}
+    - _ColorTop: {r: 0.28627452, g: 0.9058824, b: 0.92549026, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
