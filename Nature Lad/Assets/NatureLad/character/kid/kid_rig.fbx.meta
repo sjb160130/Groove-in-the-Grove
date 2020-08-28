@@ -6,7 +6,77 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_bsTargets_0429_retopo_04282020_skin
+    second: {fileID: 2100000, guid: 649c25921ff36e345bdefdf7cdee94c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_girlGeo_v01_hair_shdr
+    second: {fileID: 2100000, guid: 1227074a2ebb17d41939e244e00cb4f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_girlGeo_v01_proxyMesh_05062020_hair_shdr
+    second: {fileID: 2100000, guid: f67e6362b10583141a7154309369bbef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_headGeo_v01_skin
+    second: {fileID: 2100000, guid: 551fb072c81c1f84a86741235d91f030, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_clip
+    second: {fileID: 2100000, guid: c5c62fad3ab3f9e47a47eebd8b011781, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_flower
+    second: {fileID: 2100000, guid: 78781df2158f0aa4d9e8fca92238c28d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_flower_center
+    second: {fileID: 2100000, guid: 263470ec4f6e1594cafe9b2728e5488f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_pants
+    second: {fileID: 2100000, guid: f93e77c1b285625419f1d1702541e164, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_sandal_sole
+    second: {fileID: 2100000, guid: 1f58122da1179304095684eb22db1cfb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_sandal_top
+    second: {fileID: 2100000, guid: a8503d68a665186498c96cc13787424a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_newGeo_12062019_shirt
+    second: {fileID: 2100000, guid: 287ec8e8151fbd44e97360ff2b931353, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_phong1
+    second: {fileID: 2100000, guid: 990d3ebfd64bad84e8ed3a36eec1ad72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: kid_skinShdr
+    second: {fileID: 2100000, guid: 66675081cca239e49b03b4242526750c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 2758e347705d6a14ca1c273a48597c85, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
