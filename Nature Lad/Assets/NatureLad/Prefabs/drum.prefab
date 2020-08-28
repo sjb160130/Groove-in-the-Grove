@@ -156,12 +156,31 @@ MonoBehaviour:
   mOnPowerDrained:
     m_PersistentCalls:
       m_Calls: []
+  mOnHit:
+    m_PersistentCalls:
+      m_Calls: []
+  mOnBeat:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Emit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   power: 0
   attenuation: 0.1
-  powerIncrease: 0.1
+  powerIncrease: 0.75
   ignoreProximity: 1
   proximityRangeMin: 0.001
   proximityRangeMax: 0.002
+  proximityPower: 0
   progression:
   - {fileID: 8300000, guid: 07b13dd41d8554c4e9d9442338163313, type: 3}
   lineParent: {fileID: 0}
@@ -172,9 +191,11 @@ MonoBehaviour:
   beatAccuracy: 1
   beatOffset: 0.15
   beatPreview: 24
+  _animator: {fileID: 0}
   spawnIconIfMin: 1
   minIconSize: 0.5
   _wantedIconSize: 0
   _aggregatePower: 0
   activeIcons: []
   inactiveIcons: []
+  _alwaysFollow: 0

@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followManager: {fileID: 0}
   target: {fileID: 0}
-  minDistance: 1.5
+  minDistance: 1
   damp: 2
   maxSpeed: 2.5
   returnHomeSpeed: 1
