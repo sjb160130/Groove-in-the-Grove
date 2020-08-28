@@ -7987,51 +7987,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DemoScene
       objectReference: {fileID: 0}
-    - target: {fileID: 4020205896105117039, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020205896105117039, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020205896105117039, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020210119444406914, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.86
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020210119444406914, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020210119444406914, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 16.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020226758949250135, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 44.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020226758949250135, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 4020226758949250135, guid: ae56c73b74f3bb64a8facffdc5a6ffe4,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 55.11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae56c73b74f3bb64a8facffdc5a6ffe4, type: 3}
 --- !u!114 &6753580756998473671 stripped
