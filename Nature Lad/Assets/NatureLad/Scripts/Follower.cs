@@ -40,6 +40,9 @@ namespace NatureLad
         private Vector3 _startingPosition;
         private Quaternion _startingRotation;
 
+        [SerializeField]
+        private LayerMask _environmentMask;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -110,12 +113,14 @@ namespace NatureLad
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(transform.position, Vector3.down, out hit, 50f))
+            if (Physics.SphereCast(transform.position+Vector3.up*radius*2f, radius, Vector3.down, out hit, 50f, _environmentMask))
             {
                 Debug.DrawRay(transform.position, Vector3.down * hit.distance, Color.yellow);
                 //Debug.Log("Did Hit: " + hit.collider);
 
-                transform.position = hit.point + Vector3.up*radius;
+                Vector3 wantedPos = hit.point;// + Vector3.down * radius;
+                wantedPos = new Vector3(transform.position.x, wantedPos.y, transform.position.z);
+                transform.position = Vector3.Lerp(transform.position, wantedPos, Time.fixedDeltaTime * 5f);
             }
             else
             {

@@ -1,7 +1,9 @@
-﻿using Sirenix.OdinInspector;
+﻿using JetBrains.Annotations;
+using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 //using UnityEditor;
@@ -13,15 +15,26 @@ using UnityEngine.UI;
 namespace NatureLad
 {
     [System.Serializable]
-    public class BeatIcon
+    public class IntEvent : UnityEvent<int>
     {
-        public RectTransform icon;
+    }
+
+    [System.Serializable]
+    public class Beat
+    {
+        public Transform transform;
+
         public int idx;
         public bool isHit;
 
-        public BeatIcon(RectTransform r, int i)
+        public Beat(int i)
         {
-            icon = r;
+            idx = i;
+        }
+
+        public Beat(Transform r, int i)
+        {
+            transform = r;
             idx = i;
         }
     }
@@ -37,10 +50,13 @@ namespace NatureLad
         public UnityEvent mOnMaxPowerHit = new UnityEvent();
         public UnityEvent mOnPowerDrained = new UnityEvent();
         public UnityEvent mOnHit = new UnityEvent();
+        public IntEvent mOnHitIdx = new IntEvent();
         public UnityEvent mOnBeat = new UnityEvent();
+        public UnityEvent mOnNewBeat = new UnityEvent();
+        public UnityEvent mOnUpdateBeat = new UnityEvent();
+        public UnityEvent mOnInit = new UnityEvent();
 
-        [SerializeField]
-        private float power = 0f;
+        public float power = 0f;
         [SerializeField]
         private float attenuation = .1f;
         [SerializeField]
@@ -53,26 +69,23 @@ namespace NatureLad
         [SerializeField]
         private float proximityRangeMax = 20f;
 
-        [SerializeField]
-        private float proximityPower = 0f;
-
-        [SerializeField]
-        private AudioClip[] progression;
+        public float proximityPower = 0f;
 
         private AudioSource _audioSource;
 
         private float _length = 0f;
 
+        public float beatLength { get { return _beatLength; } }
         private float _beatLength;
 
-        [SerializeField]
+/*        [SerializeField]
         private RectTransform lineParent = null;
         [SerializeField]
-        private RectTransform visualIcon = null;
-        [SerializeField]
-        private float lineWidth = 1500f;
-        [SerializeField]
-        private float lineOffset = 250f;
+        private RectTransform visualIcon = null;*/
+        //[SerializeField]
+        //private float lineWidth = 1500f;
+        //[SerializeField]
+        //private float lineOffset = 250f;
 
         [SerializeField]
         private float beatAccuracy = 1f;
@@ -82,51 +95,41 @@ namespace NatureLad
         [SerializeField]
         private int beatPreview = 16;
 
-        [SerializeField]
-        private Animator _animator;
-
         private float _timer = 0f;
         private float _lastHit = 0f;
+        public float deltaAudioTime { get { return _deltaAudioTime; } }
         private float _deltaAudioTime = 0f;
 
         private bool _inHitWindow = false;
         private bool _inReleaseWindow = false;
 
         
-        private float _iconMoveSpeed;
+/*        private float _iconMoveSpeed;
         private float _pixelsPerBeat;
-        private float _pixelsPerSecond;
+        private float _pixelsPerSecond;*/
         private float _accuracyLength;
+        public int currentIdx { get { return _idx; } }
         private int _idx = 0;
-
-        [SerializeField]
-        private bool spawnIconIfMin = false;
-
-        [SerializeField]
-        private float minIconSize = .5f;
-
-        [SerializeField]
-        private float _wantedIconSize = 0f;
 
         [SerializeField]
         private float _aggregatePower = 0f;
 
-        [SerializeField]
-        public List<BeatIcon> activeIcons = new List<BeatIcon>();
-        [SerializeField]
-        public List<BeatIcon> inactiveIcons = new List<BeatIcon>();
+        //public List<Beat> activeBeats = new List<Beat>();
+        //public List<Beat> inactiveBeats = new List<Beat>();
 
         private GameObject _player;
 
         private bool _hasPower;
         [SerializeField]
         private bool _alwaysFollow;
+        
+        public bool isFollowing { get { return _isFollowing; } }
         private bool _isFollowing;
 
         private void Start()
         {
             _audioSource = GetComponent<AudioSource>();
-            if(progression[0])
+            if(_audioSource.clip != null)
             {
                 PrecalculateData();
             }
@@ -139,12 +142,13 @@ namespace NatureLad
             {
                 _player = GameObject.FindGameObjectWithTag("Player");
             }
+
+            mOnInit.Invoke();
         }
 
         // Update is called once per frame
         void Update()
         {
-
             // process timers
             if(_audioSource.time < _timer)
             {
@@ -175,31 +179,6 @@ namespace NatureLad
             // Calculate aggregate power and icon size
             _aggregatePower = Mathf.Max(power, proximityPower);
 
-            _wantedIconSize = Mathf.Lerp(minIconSize, 1f, power);
-            if (!_isFollowing)
-            {
-                _wantedIconSize = Mathf.Max((proximityPower >= .95f ? minIconSize + .01f : 0f), _wantedIconSize);
-            }
-
-            // Move and scale icons
-            for ( int i = 0; i < activeIcons.Count; i++)
-            {
-                Vector3 wantedPosition = activeIcons[i].icon.anchoredPosition3D;
-                wantedPosition.x -= _deltaAudioTime * _pixelsPerSecond; //GetPositionOnTimelineByIdx(activeIcons[i].idx);
-                activeIcons[i].icon.anchoredPosition3D = wantedPosition; //activeIcons[i].icon.anchoredPosition3D + (Vector3.left * _iconMoveSpeed * Time.deltaTime);
-                if(!activeIcons[i].isHit)
-                {
-                    activeIcons[i].icon.localScale = Vector3.one * _wantedIconSize;
-                }
-
-                if (activeIcons[i].icon.anchoredPosition3D.x < 0)
-                {
-                    activeIcons[i].icon.gameObject.SetActive(false);
-                    inactiveIcons.Add(activeIcons[i]);
-                    activeIcons.RemoveAt(i);
-                }
-            }
-
             // attenuate power
             power = Mathf.Max(power - attenuation * Time.deltaTime, 0.0f);
 
@@ -222,33 +201,26 @@ namespace NatureLad
 
             // adjust volume based on aggregate power
             _audioSource.volume = Mathf.Lerp(_audioSource.volume, _aggregatePower, Time.deltaTime*2f);
-
-            if(_animator)
-            {
-                _animator.SetFloat("time", _audioSource.time/_length);
-            }
         }
 
         void PrecalculateData()
         {
-            _length = progression[0].length;
+            _length = _audioSource.clip.length;
             _beatLength = _length / (float)pressSequence.Length;
-            _pixelsPerBeat = (lineWidth - lineOffset) / beatPreview;
-            _pixelsPerSecond = (lineWidth - lineOffset) / (beatPreview * _beatLength);
             _accuracyLength = _beatLength * beatAccuracy;
-            Debug.Log("Pixels per beat: " + _pixelsPerBeat);
+            //Debug.Log("Pixels per beat: " + _pixelsPerBeat);
             //_iconMoveSpeed = (lineWidth - lineOffset) / (beatPreview * _beatLength);
         }
 
-        // Note: Doesn't work after the first iteration because of looping
-        float GetPositionOnTimelineByIdx(int idx)
-        {
-            int dif = (idx - _idx);
+        /*        // Note: Doesn't work after the first iteration because of looping
+                float GetPositionOnTimelineByIdx(int idx)
+                {
+                    int dif = (idx - _idx);
 
-            float wantedPos = (dif * _pixelsPerBeat + lineOffset) - ((_timer % _beatLength) * _pixelsPerSecond); //((_timer - (_idx * _beatLength)) * _pixelsPerBeat) + (dif * _pixelsPerBeat);  //(dif * _pixelsPerBeat) - ((_timer % _beatLength) * _pixelsPerBeat);
+                    float wantedPos = (dif * _pixelsPerBeat + lineOffset) - ((_timer % _beatLength) * _pixelsPerSecond); //((_timer - (_idx * _beatLength)) * _pixelsPerBeat) + (dif * _pixelsPerBeat);  //(dif * _pixelsPerBeat) - ((_timer % _beatLength) * _pixelsPerBeat);
 
-            return wantedPos;
-        }
+                    return wantedPos;
+                }*/
 
         public void Hit()
         {
@@ -263,31 +235,60 @@ namespace NatureLad
                         {
                             inHitWindow = true;
                         }*/
-            
-            if(Mathf.Approximately(proximityPower,0f) && !ignoreProximity)
+
+            if (Mathf.Approximately(proximityPower, 0f) && !ignoreProximity)
             {
                 return;
             }
 
-            for (int i = 0; i < Mathf.Min(activeIcons.Count, 4); i++)
+            float powerMult = ignoreProximity ? 1.0f : proximityPower;
+            float wantedTime = _idx * _beatLength;
+            float delta = Mathf.Min(_timer - wantedTime, (_length - (_timer - wantedTime))%_length );
+
+            if (delta < _accuracyLength)
             {
-                if(activeIcons[i].isHit)
+                //Image img = activeIcons[i].icon.gameObject.GetComponent<Image>();
+                //img.color = Color.green;
+/*                Animator anm = activeBeats[i].rectTransform.gameObject.GetComponent<Animator>();
+                anm.SetTrigger("hit");
+                //activeIcons[i].icon.localScale = Vector3.one * 1.25f;
+                activeBeats[i].isHit = true;*/
+                _audioSource.volume = 1.0f;
+                power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
+                if (power > .01f)
+                {
+                    _hasPower = true;
+                }
+
+                if (Mathf.Approximately(power, 1.0f))
+                {
+                    mOnMaxPowerHit.Invoke();
+                    _isFollowing = true;
+                }
+
+                mOnHit.Invoke();
+                mOnHitIdx.Invoke(_idx);
+            }
+
+/*            for (int i = 0; i < Mathf.Min(activeBeats.Count, 4); i++)
+            {
+                if(activeBeats[i].isHit)
                 {
                     continue;
                 }
-                float powerMult = ignoreProximity ? 1.0f : proximityPower;
+                
 
-                float wantedTime = activeIcons[i].idx * _beatLength;
+                float wantedTime = activeBeats[i].idx * _beatLength;
                 float delta = Mathf.Abs(wantedTime - _timer);
                 //Debug.Log(delta);
                 if (delta < _accuracyLength)
                 {
                     //Image img = activeIcons[i].icon.gameObject.GetComponent<Image>();
                     //img.color = Color.green;
-                    Animator anm = activeIcons[i].icon.gameObject.GetComponent<Animator>();
+                    Animator anm = activeBeats[i].rectTransform.gameObject.GetComponent<Animator>();
                     anm.SetTrigger("hit");
                     //activeIcons[i].icon.localScale = Vector3.one * 1.25f;
-                    activeIcons[i].isHit = true;
+                    activeBeats[i].isHit = true;
                     _audioSource.volume = 1.0f;
                     power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
                     if(power > .01f)
@@ -305,7 +306,7 @@ namespace NatureLad
 
                     break;
                 }
-            }
+            }*/
         }
 
         public void Play()
@@ -325,34 +326,12 @@ namespace NatureLad
 
         void UpdateBeat()
         {
-            bool shouldSpawn = _wantedIconSize > minIconSize || spawnIconIfMin;//Mathf.Approximately(Mathf.Max(_wantedIconSize, minIconSize), minIconSize)
-            int wantedIdx = (_idx + beatPreview) % pressSequence.Length;
-
             if( pressSequence[_idx] )
             {
                 mOnBeat.Invoke();
             }
 
-            if (visualIcon != null && pressSequence[ wantedIdx] && shouldSpawn)
-            {
-                if (inactiveIcons.Count == 0)
-                {
-                    RectTransform icon = Instantiate(visualIcon, lineParent);
-                    icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
-                    activeIcons.Add(new BeatIcon(icon, wantedIdx));
-                }
-                else
-                {
-                    BeatIcon beatIcon = inactiveIcons[0];
-                    inactiveIcons.RemoveAt(0);
-                    beatIcon.icon.gameObject.SetActive(true);
-                    beatIcon.isHit = false;
-                    beatIcon.idx = wantedIdx;
-                    beatIcon.icon.anchoredPosition3D = new Vector3(lineWidth, 0, 0);
-                    activeIcons.Add(beatIcon);
-                }
-            }
-
+            mOnUpdateBeat.Invoke();
         }
 
         void OnGUI()
