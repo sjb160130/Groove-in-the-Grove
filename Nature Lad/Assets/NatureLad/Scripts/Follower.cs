@@ -5,11 +5,15 @@ using System.Collections.Generic;
 //using System.Runtime.Remoting.Messaging;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NatureLad
 {
     public class Follower : MonoBehaviour
     {
+        public UnityEvent mOnFollow = new UnityEvent();
+        public UnityEvent mOnUnfollow = new UnityEvent();
+
         [SerializeField]
         private FollowManager followManager;
         public Transform target;
@@ -43,6 +47,9 @@ namespace NatureLad
         [SerializeField]
         private LayerMask _environmentMask;
 
+        [SerializeField]
+        private bool _canTeleport = false;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -66,7 +73,7 @@ namespace NatureLad
             {
                 // Check if character is off screen, if so, teleport them closer
                 Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-                if (screenPos.x < -100f || screenPos.y < -100f || screenPos.x > Screen.width+100f || screenPos.y > Screen.height+100f)
+                if ((screenPos.x < -100f || screenPos.y < -100f || screenPos.x > Screen.width + 100f || screenPos.y > Screen.height + 100f) && _canTeleport)
                 {
                     transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(screenPos.x, -10f, Screen.width + 10f), Mathf.Clamp(screenPos.y, -10f, Screen.height + 10f), screenPos.z));
                 }
@@ -151,6 +158,8 @@ namespace NatureLad
             {
                 followManager.Follow(this);
             }
+
+            mOnFollow.Invoke();
         }
 
         [Button("Stop Following")]
@@ -165,6 +174,8 @@ namespace NatureLad
             {
                 followManager.Unfollow(this);
             }
+
+            mOnUnfollow.Invoke();
         }
     }
 }
