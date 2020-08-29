@@ -50,6 +50,7 @@ namespace NatureLad
         public UnityEvent mOnMaxPowerHit = new UnityEvent();
         public UnityEvent mOnPowerDrained = new UnityEvent();
         public UnityEvent mOnHit = new UnityEvent();
+        public UnityEvent mOnSuccessHit = new UnityEvent();
         public IntEvent mOnHitIdx = new IntEvent();
         public UnityEvent mOnBeat = new UnityEvent();
         public UnityEvent mOnNewBeat = new UnityEvent();
@@ -103,6 +104,7 @@ namespace NatureLad
         private bool _inHitWindow = false;
         private bool _inReleaseWindow = false;
 
+        private int successfulHitIdx = -1;
         
 /*        private float _iconMoveSpeed;
         private float _pixelsPerBeat;
@@ -236,38 +238,75 @@ namespace NatureLad
                             inHitWindow = true;
                         }*/
 
-            if (Mathf.Approximately(proximityPower, 0f) && !ignoreProximity)
+            if (proximityPower < 1.0f && !ignoreProximity)
             {
                 return;
             }
 
-            float powerMult = ignoreProximity ? 1.0f : proximityPower;
-            float wantedTime = _idx * _beatLength;
-            float delta = Mathf.Min(_timer - wantedTime, (_length - (_timer - wantedTime))%_length );
+            bool hasHit = false;
+            int hitIdx = -1;
+            float delta = _beatLength * 2f;
 
-            if (delta < _accuracyLength)
+            int nextIdx = (_idx + 1) % pressSequence.Length;
+            float powerMult = ignoreProximity ? 1.0f : proximityPower;
+            
+            if (pressSequence[_idx] && successfulHitIdx != _idx)
+            {
+                float wantedTime = _idx * _beatLength;
+                delta = Mathf.Min(_timer - wantedTime, (_length - (_timer - wantedTime)) % _length);
+            
+                if(delta < _accuracyLength)
+                {
+                    hitIdx = _idx;
+                    hasHit = true;
+                }
+            }
+            else if(pressSequence[nextIdx] && successfulHitIdx != nextIdx)
+            {
+                float wantedTime = nextIdx * _beatLength;
+                delta = Mathf.Min(_timer - wantedTime, (_length - (_timer - wantedTime)) % _length);
+
+                if (delta < _accuracyLength)
+                {
+                    hitIdx = nextIdx;
+                    hasHit = true;
+                }
+            }
+
+
+            if (hasHit)
             {
                 //Image img = activeIcons[i].icon.gameObject.GetComponent<Image>();
                 //img.color = Color.green;
-/*                Animator anm = activeBeats[i].rectTransform.gameObject.GetComponent<Animator>();
-                anm.SetTrigger("hit");
-                //activeIcons[i].icon.localScale = Vector3.one * 1.25f;
-                activeBeats[i].isHit = true;*/
-                _audioSource.volume = 1.0f;
-                power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
-                if (power > .01f)
+                /*                Animator anm = activeBeats[i].rectTransform.gameObject.GetComponent<Animator>();
+                                anm.SetTrigger("hit");
+                                //activeIcons[i].icon.localScale = Vector3.one * 1.25f;
+                                activeBeats[i].isHit = true;*/
+
+                if(successfulHitIdx != hitIdx)
                 {
-                    _hasPower = true;
+                    successfulHitIdx = hitIdx;
+
+                    Debug.Log("Delta: " + delta + ", Accuracy Length: " + _accuracyLength);
+
+                    _audioSource.volume = 1.0f;
+                    power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
+                    if (power > .01f)
+                    {
+                        _hasPower = true;
+                    }
+
+                    if (Mathf.Approximately(power, 1.0f))
+                    {
+                        mOnMaxPowerHit.Invoke();
+                        _isFollowing = true;
+                    }
+
+                    mOnHit.Invoke();
+                    mOnHitIdx.Invoke(hitIdx);
                 }
 
-                if (Mathf.Approximately(power, 1.0f))
-                {
-                    mOnMaxPowerHit.Invoke();
-                    _isFollowing = true;
-                }
 
-                mOnHit.Invoke();
-                mOnHitIdx.Invoke(_idx);
             }
 
 /*            for (int i = 0; i < Mathf.Min(activeBeats.Count, 4); i++)
@@ -328,9 +367,11 @@ namespace NatureLad
         {
             if( pressSequence[_idx] )
             {
+                // only happens on a note beat
                 mOnBeat.Invoke();
             }
 
+            // happens every beat
             mOnUpdateBeat.Invoke();
         }
 

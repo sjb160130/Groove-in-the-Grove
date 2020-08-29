@@ -62,6 +62,11 @@ public class RhythmVisualizer : MonoBehaviour
 
     void Update()
     {
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+
         _wantedSize = Mathf.Lerp(minSize, 1f, _rhythmTracker.power);
 
         if (!_rhythmTracker.isFollowing)
@@ -109,6 +114,11 @@ public class RhythmVisualizer : MonoBehaviour
 
     public void OnHit(int idx)
     {
+        if(!isActiveAndEnabled)
+        {
+            return;
+        }
+
         for (int i = 0; i < Mathf.Min(activeBeats.Count, 4); i++)
         {
             if (activeBeats[i].isHit)
@@ -132,6 +142,11 @@ public class RhythmVisualizer : MonoBehaviour
 
     public void OnUpdateBeat()
     {
+        if (!isActiveAndEnabled)
+        {
+            return;
+        }
+
         int idx = _rhythmTracker.currentIdx;
 
         int wantedIdx = (idx + beatPreview) % _rhythmTracker.pressSequence.Length;
