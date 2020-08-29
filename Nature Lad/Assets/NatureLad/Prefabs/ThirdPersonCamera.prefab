@@ -107,14 +107,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2637170845807914887}
-  m_LocalRotation: {x: 0.15984176, y: 0.0026952624, z: -0.00043309457, w: 0.98713887}
+  m_LocalRotation: {x: 0.15983747, y: 0.002696346, z: -0.00043659186, w: 0.9871396}
   m_LocalPosition: {x: 28.234613, y: 11.5149355, z: -14.757786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2637170845062471248}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 18.395, y: 0.313, z: 0}
 --- !u!114 &2637170845807914886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothBetweenState: 6
-  smoothCameraRotation: 6
+  smoothCameraRotation: 0.25
   scrollSpeed: 10
   cullingLayer:
     serializedVersion: 2
@@ -139,7 +139,7 @@ MonoBehaviour:
   showGizmos: 0
   startUsingTargetRotation: 1
   startSmooth: 0
-  lockCamera: 0
+  lockCamera: 1
   offsetMouse: {x: 0, y: 0}
   indexList: 3
   indexLookPoint: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
     fixedAngle: {x: 0, y: 0}
     lookPoints: []
     cameraMode: 0
-  CameraStateList: {fileID: 11400000, guid: dbf2c7a931be7ae4d960bc178dc4dda6, type: 2}
+  CameraStateList: {fileID: 11400000, guid: 5d4272e3b841a4647bc42d83feb4654f, type: 2}
   lockTarget: {fileID: 0}
   movementSpeed: {x: 0, y: 0}
   lerpState:

@@ -287,7 +287,7 @@ namespace NatureLad
                 {
                     successfulHitIdx = hitIdx;
 
-                    Debug.Log("Delta: " + delta + ", Accuracy Length: " + _accuracyLength);
+                    //Debug.Log("Delta: " + delta + ", Accuracy Length: " + _accuracyLength);
 
                     _audioSource.volume = 1.0f;
                     power = Mathf.Min(power + (powerIncrease * powerMult), 1.0f);
