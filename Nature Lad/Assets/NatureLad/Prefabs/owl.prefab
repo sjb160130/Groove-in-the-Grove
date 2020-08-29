@@ -261,6 +261,9 @@ MonoBehaviour:
   mOnUpdateBeat:
     m_PersistentCalls:
       m_Calls: []
+  mOnInit:
+    m_PersistentCalls:
+      m_Calls: []
   power: 0
   attenuation: 0.01
   powerIncrease: 0.5
@@ -272,8 +275,6 @@ MonoBehaviour:
   beatOffset: 0.15
   beatPreview: 24
   _aggregatePower: 0
-  activeBeats: []
-  inactiveBeats: []
   _alwaysFollow: 0
 --- !u!82 &156502473333985012
 AudioSource:
@@ -404,7 +405,9 @@ MonoBehaviour:
   line: {x: 1500, y: 0, z: 0}
   lineOffset: {x: 100, y: 0, z: 0}
   beatPreview: 24
-  spawnVisualIfMin: 1
+  activeBeats: []
+  inactiveBeats: []
+  spawnVisualIfMin: 0
   minSize: 0.5
 --- !u!1001 &2321584057865427936
 PrefabInstance:
