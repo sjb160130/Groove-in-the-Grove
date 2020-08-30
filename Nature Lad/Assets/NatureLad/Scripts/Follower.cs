@@ -17,6 +17,7 @@ namespace NatureLad
         [SerializeField]
         private FollowManager followManager;
         public Transform target;
+        public Transform moveTarget;
 
         public float minDistance = 1f;
 
@@ -71,36 +72,50 @@ namespace NatureLad
 
             if(target && _isFollowing)
             {
-                // Check if character is off screen, if so, teleport them closer
-                Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-                if ((screenPos.x < -100f || screenPos.y < -100f || screenPos.x > Screen.width + 100f || screenPos.y > Screen.height + 100f) && _canTeleport)
+                // If there's an active move target, move the thing to there
+                // so as to be able to frame the animals where we want them
+                // during the locked cam vignettes
+                if(moveTarget)
                 {
-                    transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(screenPos.x, -10f, Screen.width + 10f), Mathf.Clamp(screenPos.y, -10f, Screen.height + 10f), screenPos.z));
+                    wantedVelocity = moveTarget.position - transform.position;
+                    targetVelocity = wantedVelocity;
+
+                    wantedRotation = wantedVelocity.magnitude > .5f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.x).normalized, Vector3.up) : moveTarget.rotation;
                 }
+                // otherwise we just follow the character
+                else
+                {
+                    // Check if character is off screen, if so, teleport them closer
+                    Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+                    if ((screenPos.x < -100f || screenPos.y < -100f || screenPos.x > Screen.width + 100f || screenPos.y > Screen.height + 100f) && _canTeleport)
+                    {
+                        transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Mathf.Clamp(screenPos.x, -10f, Screen.width + 10f), Mathf.Clamp(screenPos.y, -10f, Screen.height + 10f), screenPos.z));
+                    }
 
-                targetPosition = target.position;
+                    targetPosition = target.position;
 
-                delta = targetPosition - transform.position;
-                targetVelocity = targetPosition - _lastTargetPosition;
-                _lastTargetPosition = targetPosition;
+                    delta = targetPosition - transform.position;
+                    targetVelocity = targetPosition - _lastTargetPosition;
+                    _lastTargetPosition = targetPosition;
 
-                targetPosition = (target.position - (delta.normalized * minDistance));
-                wantedVelocity = targetPosition - transform.position;
+                    targetPosition = (target.position - (delta.normalized * minDistance));
+                    wantedVelocity = targetPosition - transform.position;
 
-                Vector3 lookAtVector = target.position - transform.position;
-                lookAtVector.y = 0f;
-                lookAtVector.Normalize();
+                    Vector3 lookAtVector = target.position - transform.position;
+                    lookAtVector.y = 0f;
+                    lookAtVector.Normalize();
 
-                Quaternion velocityRotation = Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.z).normalized, Vector3.up);
-                Quaternion lookAtRotation = Quaternion.LookRotation(lookAtVector, Vector3.up);
-                wantedRotation = Quaternion.Slerp(lookAtRotation, velocityRotation, _velocity.magnitude);
+                    Quaternion velocityRotation = Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.z).normalized, Vector3.up);
+                    Quaternion lookAtRotation = Quaternion.LookRotation(lookAtVector, Vector3.up);
+                    wantedRotation = Quaternion.Slerp(lookAtRotation, velocityRotation, _velocity.magnitude);
+                }
             }
             else
             {
                 wantedVelocity = _startingPosition - transform.position;
                 targetVelocity = wantedVelocity;
 
-                wantedRotation = _velocity.magnitude > .1f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.x).normalized, Vector3.up) : _startingRotation;
+                wantedRotation = wantedVelocity.magnitude > 1f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.x).normalized, Vector3.up) : _startingRotation;
             }
             
             transform.rotation = Quaternion.Slerp(transform.rotation, wantedRotation, Time.fixedDeltaTime * 2f);
@@ -176,6 +191,16 @@ namespace NatureLad
             }
 
             mOnUnfollow.Invoke();
+        }
+
+        public void SetMoveTarget(Transform newMoveTarget)
+        {
+            moveTarget = newMoveTarget;
+        }
+
+        public void ResetMoveTarget()
+        {
+            moveTarget = null;
         }
     }
 }
