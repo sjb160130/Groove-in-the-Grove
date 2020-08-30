@@ -84,7 +84,7 @@ namespace NatureLad
                 targetVelocity = wantedVelocity;
                 
 
-                wantedRotation = wantedVelocity.magnitude > .5f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.x).normalized, Vector3.up) : moveTarget.rotation;
+                wantedRotation = wantedVelocity.magnitude > .5f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.z).normalized, Vector3.up) : moveTarget.rotation;
             }
             // otherwise we just follow the character
             else if (target && _isFollowing)
@@ -118,7 +118,7 @@ namespace NatureLad
                 wantedVelocity = _startingPosition - transform.position;
                 targetVelocity = wantedVelocity;
 
-                wantedRotation = wantedVelocity.magnitude > 1f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.x).normalized, Vector3.up) : _startingRotation;
+                wantedRotation = wantedVelocity.magnitude > 1f ? Quaternion.LookRotation(new Vector3(wantedVelocity.x, 0f, wantedVelocity.z).normalized, Vector3.up) : _startingRotation;
             }
 
             wantedVelocityMagnitude = wantedVelocity.magnitude;
