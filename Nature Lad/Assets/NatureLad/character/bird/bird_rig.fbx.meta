@@ -6,7 +6,22 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bird_Mat_Crow1
+    second: {fileID: 2100000, guid: dbab40ca2e5062c4db03b7f5e97af7b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bird_Mat_Duck
+    second: {fileID: 2100000, guid: f7f12451c955855479153d24ff7d6b5e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bird_Mat_Parrot
+    second: {fileID: 2100000, guid: 372ecd251edbe9442ada5f45260c3797, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
