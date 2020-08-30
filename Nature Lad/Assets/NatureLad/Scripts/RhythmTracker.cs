@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq.Expressions;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
@@ -47,6 +48,7 @@ namespace NatureLad
         [ListDrawerSettings(NumberOfItemsPerPage = 16, ShowIndexLabels = true)]
         public bool[] pressSequence = new bool[64];
 
+        public UnityEvent mOnPlay = new UnityEvent();
         public UnityEvent mOnMaxPowerHit = new UnityEvent();
         public UnityEvent mOnPowerDrained = new UnityEvent();
         public UnityEvent mOnHit = new UnityEvent();
@@ -56,10 +58,15 @@ namespace NatureLad
         public UnityEvent mOnNewBeat = new UnityEvent();
         public UnityEvent mOnUpdateBeat = new UnityEvent();
         public UnityEvent mOnInit = new UnityEvent();
+        public UnityEvent mOnEnableInput = new UnityEvent();
+        public UnityEvent mOnDisableInput = new UnityEvent();
+
+        private bool _inputEnabled = false;
 
         public float power = 0f;
         [SerializeField]
         private float attenuation = .1f;
+        private bool _ignoreAttenuation = false;
         [SerializeField]
         private float powerIncrease = .1f;
 
@@ -67,8 +74,25 @@ namespace NatureLad
         private bool ignoreProximity = false;
         [SerializeField]
         private float proximityRangeMin = 10f;
+        public void SetProximityMin(float v)
+        {
+            proximityRangeMin = v;
+        }
+
         [SerializeField]
         private float proximityRangeMax = 20f;
+        public void SetProximityMax(float v)
+        {
+            proximityRangeMax = v;
+        }
+
+        [SerializeField]
+        private float proximityDamp = 1f;
+
+
+        private float _proximityRangeMin = 10f;
+        private float _proximityRangeMax = 20f;
+
 
         public float proximityPower = 0f;
 
@@ -152,7 +176,7 @@ namespace NatureLad
         void Update()
         {
             // process timers
-            if(_audioSource.time < _timer)
+            if (_audioSource.time < _timer)
             {
                 _timer -= _audioSource.clip.length;
             }
@@ -175,14 +199,20 @@ namespace NatureLad
             if (_player)
             {
                 float distance = (_player.transform.position - transform.position).magnitude;
-                proximityPower = 1f - ((Mathf.Clamp(distance, proximityRangeMin, proximityRangeMax) - proximityRangeMin) / (proximityRangeMax - proximityRangeMin));
+                proximityPower = 1f - ((Mathf.Clamp(distance, _proximityRangeMin, _proximityRangeMax) - _proximityRangeMin) / (_proximityRangeMax - _proximityRangeMin));
             }
+
+            _proximityRangeMax = Mathf.Lerp(_proximityRangeMax, proximityRangeMax, Time.deltaTime * proximityDamp);
+            _proximityRangeMin = Mathf.Lerp(_proximityRangeMin, proximityRangeMin, Time.deltaTime * proximityDamp);
 
             // Calculate aggregate power and icon size
             _aggregatePower = Mathf.Max(power, proximityPower);
 
             // attenuate power
-            power = Mathf.Max(power - attenuation * Time.deltaTime, 0.0f);
+            if (!_ignoreAttenuation)
+            {
+                power = Mathf.Max(power - attenuation * Time.deltaTime, 0.0f);
+            }            
 
             // change properties based on power
             // and invoke events
@@ -198,6 +228,21 @@ namespace NatureLad
                 if (_isFollowing && !_alwaysFollow)
                 {
                     _isFollowing = false;
+                }
+            }
+
+            // figure out if input is enabled
+            bool wantedInputEnabled = !(proximityPower < 1.0f && !ignoreProximity);
+            if(wantedInputEnabled != _inputEnabled)
+            {
+                _inputEnabled = wantedInputEnabled;
+                if(_inputEnabled)
+                {
+                    mOnEnableInput.Invoke();
+                }
+                else
+                {
+                    mOnDisableInput.Invoke();
                 }
             }
 
@@ -238,7 +283,7 @@ namespace NatureLad
                             inHitWindow = true;
                         }*/
 
-            if (proximityPower < 1.0f && !ignoreProximity)
+            if (!_inputEnabled)
             {
                 return;
             }
@@ -353,6 +398,8 @@ namespace NatureLad
             _audioSource.Play();
             _timer = 0f;
 
+            mOnPlay.Invoke();
+
             //InvokeRepeating("UpdateBeat", 0f, _beatLength);
             //InvokeRepeating("ResetBeat", (beatAccuracy * _beatLength)-.04f, _beatLength);
         }
@@ -375,13 +422,13 @@ namespace NatureLad
             mOnUpdateBeat.Invoke();
         }
 
-        void OnGUI()
+/*        void OnGUI()
         {
             GUI.Label(new Rect(10, 10, 200, 20), _timer.ToString());
             GUI.Label(new Rect(10, 70, 200, 20), _idx.ToString());
             GUI.Label(new Rect(10, 30, 200, 20), _inHitWindow.ToString());
             GUI.Label(new Rect(10, 50, 200, 20), _inReleaseWindow.ToString());
-        }
+        }*/
         void OnDrawGizmosSelected()
         {
             // Draw a yellow sphere at the transform's position
@@ -413,6 +460,12 @@ namespace NatureLad
         {
             ignoreProximity = v;
         }
+
+        public void SetIgnoreAttenuation(bool val)
+        {
+            _ignoreAttenuation = val;
+        }
+
     }
 }
 

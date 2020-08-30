@@ -6,6 +6,9 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: intro
+  - first:
+      74: -998496362607748373
+    second: intro idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -203,6 +206,177 @@ ModelImporter:
       - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_shoulder_roll_0_sknJnt
         weight: 1
       maskType: 1
+      maskSource: {fileID: 31900000, guid: 49fb83f32b5dee846810e490391b240b, type: 2}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: intro idle
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: geo
+        weight: 0
+      - path: geo/drum_geo
+        weight: 1
+      - path: geo/kid_geo
+        weight: 1
+      - path: kid:master
+        weight: 0
+      - path: rootMotion_jnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt/L_hip_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt/L_knee_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt/L_knee_sknJnt/L_ankle_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt/L_knee_sknJnt/L_ankle_sknJnt/L_ball_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt/L_knee_sknJnt/L_ankle_sknJnt/L_ball_sknJnt/L_toe_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/L_hip_sknJnt/L_knee_sknJnt/L_knee_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt/R_hip_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt/R_knee_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt/R_knee_sknJnt/R_ankle_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt/R_knee_sknJnt/R_ankle_sknJnt/R_ball_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt/R_knee_sknJnt/R_ankle_sknJnt/R_ball_sknJnt/R_toe_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/R_hip_sknJnt/R_knee_sknJnt/R_knee_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_elbow_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_index_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_index_1_sknJnt/L_index_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_index_1_sknJnt/L_index_2_sknJnt/L_index_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_middle_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_middle_1_sknJnt/L_middle_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_middle_1_sknJnt/L_middle_2_sknJnt/L_middle_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_pinky_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_pinky_1_sknJnt/L_pinky_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_pinky_1_sknJnt/L_pinky_2_sknJnt/L_pinky_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_ring_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_ring_1_sknJnt/L_ring_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_ring_1_sknJnt/L_ring_2_sknJnt/L_ring_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_snapPoint_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_thumb_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_thumb_0_sknJnt/L_thumb_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_elbow_sknJnt/L_wrist_sknJnt/L_thumb_0_sknJnt/L_thumb_1_sknJnt/L_thumb_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/L_clav_sknJnt/L_shoulder_sknJnt/L_shoulder_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/neck_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/neck_sknJnt/head_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_elbow_roll_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_index_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_index_1_sknJnt/R_index_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_index_1_sknJnt/R_index_2_sknJnt/R_index_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_middle_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_middle_1_sknJnt/R_middle_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_middle_1_sknJnt/R_middle_2_sknJnt/R_middle_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_pinky_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_pinky_1_sknJnt/R_pinky_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_pinky_1_sknJnt/R_pinky_2_sknJnt/R_pinky_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_ring_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_ring_1_sknJnt/R_ring_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_ring_1_sknJnt/R_ring_2_sknJnt/R_ring_3_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_snapPoint_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_snapPoint_sknJnt/drum_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_thumb_0_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_thumb_0_sknJnt/R_thumb_1_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_elbow_sknJnt/R_wrist_sknJnt/R_thumb_0_sknJnt/R_thumb_1_sknJnt/R_thumb_2_sknJnt
+        weight: 1
+      - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_shoulder_roll_0_sknJnt
+        weight: 1
+      maskType: 3
       maskSource: {fileID: 31900000, guid: 49fb83f32b5dee846810e490391b240b, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 0
