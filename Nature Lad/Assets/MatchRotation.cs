@@ -23,7 +23,8 @@ namespace NatureLad
 
             _lastPosition = target.transform.position;
 
-            transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, damp * velocityMult * Time.deltaTime);
+            float dotMult = Mathf.Max(1f + Vector3.Dot(transform.forward, target.forward), 1.0f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation, damp * velocityMult * dotMult * Time.deltaTime);
         }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8591325957991329187}
   - component: {fileID: 8591325957991329190}
   - component: {fileID: 8591325957991329191}
+  - component: {fileID: 1495475103}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -61,6 +62,33 @@ MonoBehaviour:
   m_AmplitudeGain: 0.5
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 0, y: 0, z: 0}
+--- !u!114 &1495475103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8591325957991329186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TrackedObjectOffset: {x: 0, y: 0.67, z: 0.18}
+  m_LookaheadTime: 0
+  m_LookaheadSmoothing: 0
+  m_LookaheadIgnoreY: 0
+  m_HorizontalDamping: 0.5
+  m_VerticalDamping: 0.5
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
+  m_SoftZoneWidth: 0.8
+  m_SoftZoneHeight: 0.8
+  m_BiasX: 0
+  m_BiasY: 0
+  m_CenterOnActivate: 1
 --- !u!1 &8591325958397277695
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +113,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8591325958397277695}
-  m_LocalRotation: {x: 0.17202689, y: -0.81085914, z: 0.27589136, w: 0.48661906}
+  m_LocalRotation: {x: 0.15563247, y: -0.81967604, z: 0.26342347, w: 0.48427045}
   m_LocalPosition: {x: 3.05, y: 2.65, z: 1.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -175,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 0
-  selectedToolbar: 3
+  selectedToolbar: 1
   inputType: 0
   actionInput:
     useInput: 1
@@ -204,7 +232,7 @@ MonoBehaviour:
   forwardAngle: 30
   useTriggerRotation: 1
   destroyAfter: 1
-  destroyDelay: 0
+  destroyDelay: 6
   customCameraState: WakeUp
   playAnimation: intro
   endExitTimeAnimation: 1
@@ -351,7 +379,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
+        m_MethodName: Play
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -441,10 +469,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 8591325958397277680}
-        m_TargetAssemblyTypeName: Cinemachine.CinemachineVirtualCameraBase, Cinemachine
-        m_MethodName: MoveToTopOfPrioritySubqueue
-        m_Mode: 1
+      - m_Target: {fileID: 8591325958397277695}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
