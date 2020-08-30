@@ -135,10 +135,11 @@ MonoBehaviour:
       m_Calls: []
   followManager: {fileID: 0}
   target: {fileID: 0}
+  moveTarget: {fileID: 0}
   minDistance: 1.5
   damp: 2
   maxSpeed: 2.5
-  returnHomeSpeed: 1
+  returnHomeSpeed: 2
   radius: 0.3
   animator: {fileID: 2889573646068759151}
   velocity: {x: 0, y: 0, z: 0}
@@ -146,6 +147,7 @@ MonoBehaviour:
   _environmentMask:
     serializedVersion: 2
     m_Bits: 1
+  _canTeleport: 0
 --- !u!114 &5757743110152030847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +246,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   power: 0
-  attenuation: 0.01
+  attenuation: 0.05
   powerIncrease: 0.1
   ignoreProximity: 0
   proximityRangeMin: 6.99

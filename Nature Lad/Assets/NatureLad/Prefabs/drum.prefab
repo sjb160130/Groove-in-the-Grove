@@ -179,7 +179,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   power: 0
-  attenuation: 0.1
+  attenuation: 0.25
   powerIncrease: 0.75
   ignoreProximity: 1
   proximityRangeMin: 0.001
