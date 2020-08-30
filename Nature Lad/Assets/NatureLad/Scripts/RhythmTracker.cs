@@ -61,7 +61,9 @@ namespace NatureLad
         public UnityEvent mOnEnableInput = new UnityEvent();
         public UnityEvent mOnDisableInput = new UnityEvent();
 
+        private bool _manualInputEnabled = true;
         private bool _inputEnabled = false;
+        
 
         public float power = 0f;
         [SerializeField]
@@ -232,7 +234,7 @@ namespace NatureLad
             }
 
             // figure out if input is enabled
-            bool wantedInputEnabled = !(proximityPower < 1.0f && !ignoreProximity);
+            bool wantedInputEnabled = (!(proximityPower < 1.0f && !ignoreProximity)) && _manualInputEnabled;
             if(wantedInputEnabled != _inputEnabled)
             {
                 _inputEnabled = wantedInputEnabled;
@@ -465,6 +467,12 @@ namespace NatureLad
         {
             _ignoreAttenuation = val;
         }
+
+        public void SetInputEnabled(bool val)
+        {
+            _manualInputEnabled = val;
+        }
+
 
     }
 }
