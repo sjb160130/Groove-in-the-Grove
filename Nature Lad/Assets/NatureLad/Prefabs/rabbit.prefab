@@ -170,6 +170,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   pressSequence: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  mOnPlay:
+    m_PersistentCalls:
+      m_Calls: []
   mOnMaxPowerHit:
     m_PersistentCalls:
       m_Calls:
@@ -245,12 +248,19 @@ MonoBehaviour:
   mOnInit:
     m_PersistentCalls:
       m_Calls: []
+  mOnEnableInput:
+    m_PersistentCalls:
+      m_Calls: []
+  mOnDisableInput:
+    m_PersistentCalls:
+      m_Calls: []
   power: 0
-  attenuation: 0.05
+  attenuation: 0
   powerIncrease: 0.1
   ignoreProximity: 0
   proximityRangeMin: 6.99
   proximityRangeMax: 19.4
+  proximityDamp: 1
   proximityPower: 0
   beatAccuracy: 0.9
   beatOffset: 0.15
