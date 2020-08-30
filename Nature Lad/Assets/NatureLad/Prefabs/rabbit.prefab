@@ -148,6 +148,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _canTeleport: 0
+  wantedVelocity: {x: 0, y: 0, z: 0}
+  wantedVelocityMagnitude: 0
 --- !u!114 &5757743110152030847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -499,6 +501,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298332408365114399, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298332408365114399, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.854902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298332408365114399, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.27058825
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0e1cbfd65234024aafedb61a3f89a2a, type: 3}

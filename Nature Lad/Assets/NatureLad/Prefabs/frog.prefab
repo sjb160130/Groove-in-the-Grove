@@ -147,6 +147,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _canTeleport: 0
+  wantedVelocity: {x: 0, y: 0, z: 0}
+  wantedVelocityMagnitude: 0
 --- !u!114 &2747981097310028470
 MonoBehaviour:
   m_ObjectHideFlags: 0

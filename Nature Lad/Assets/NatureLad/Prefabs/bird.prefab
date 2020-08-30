@@ -147,6 +147,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _canTeleport: 0
+  wantedVelocity: {x: 0, y: 0, z: 0}
+  wantedVelocityMagnitude: 0
 --- !u!114 &8716118666074942060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,6 +498,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6b3271720da40264495e563f4e402b17, type: 2}
+    - target: {fileID: 3298332408365114399, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.28627452
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298332408365114399, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.9058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 3298332408365114399, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.92549026
+      objectReference: {fileID: 0}
     - target: {fileID: 4780750938949198550, guid: f0e1cbfd65234024aafedb61a3f89a2a,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
