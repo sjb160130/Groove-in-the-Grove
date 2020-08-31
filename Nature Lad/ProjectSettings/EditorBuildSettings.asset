@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/NatureLad/scenes/NatureLadMainAlt.unity
+    guid: 2c7f3bbf3421bc8438e7560e53fc685d
   m_configObjects: {}
