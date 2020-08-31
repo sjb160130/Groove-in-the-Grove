@@ -203,12 +203,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openCloseEvents: 0
   openCloseWindow: 0
-  selectedToolbar: 1
+  selectedToolbar: 0
   inputType: 0
   actionInput:
     useInput: 1
     isAxisInUse: 0
-    keyboard: Space
+    keyboard: DownArrow
     keyboardAxis: 0
     joystick: A
     joystickAxis: 0

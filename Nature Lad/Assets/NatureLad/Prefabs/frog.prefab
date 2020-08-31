@@ -557,6 +557,21 @@ PrefabInstance:
       propertyPath: _rhythmTracker
       value: 
       objectReference: {fileID: 2747981097310028470}
+    - target: {fileID: 2206695682597586287, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2206695682597586287, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2206695682597586287, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 2294902299445454147, guid: f0e1cbfd65234024aafedb61a3f89a2a,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -677,6 +692,11 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.86274517
       objectReference: {fileID: 0}
+    - target: {fileID: 5972168446937703873, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 054ed76462aad8944870abf73ef2ae0a, type: 2}
     - target: {fileID: 6536836459726730480, guid: f0e1cbfd65234024aafedb61a3f89a2a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

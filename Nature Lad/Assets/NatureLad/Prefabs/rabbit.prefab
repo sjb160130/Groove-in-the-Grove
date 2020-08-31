@@ -580,6 +580,21 @@ PrefabInstance:
       propertyPath: _rhythmTracker
       value: 
       objectReference: {fileID: 5757743110152030847}
+    - target: {fileID: 2206695682597586287, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2206695682597586287, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2206695682597586287, guid: f0e1cbfd65234024aafedb61a3f89a2a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 2294902299445454146, guid: f0e1cbfd65234024aafedb61a3f89a2a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

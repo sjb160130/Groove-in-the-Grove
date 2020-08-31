@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Invector.vCharacterController
 {
     public class vHUDController : MonoBehaviour
     {
+        #region Events
+        public UnityEvent mOnControllerInputSwitch = new UnityEvent();
+        public UnityEvent mOnKeyboardInputSwitch = new UnityEvent();
+        #endregion
+        
         #region General Variables
 
         #region Health/Stamina Variables
@@ -22,6 +28,7 @@ namespace Invector.vCharacterController
         [Header("Controls Display")]
         [HideInInspector]
         public bool controllerInput;
+        private bool _controllerInput;
         public Image displayControls;
         public Sprite joystickControls;
         public Sprite keyboardControls;
@@ -198,9 +205,24 @@ namespace Invector.vCharacterController
 		displayControls.enabled = false;
 #else
             if (controllerInput)
+            {
                 displayControls.sprite = joystickControls;
+                if(!_controllerInput)
+                {
+                    _controllerInput = controllerInput;
+                    mOnControllerInputSwitch.Invoke();
+                }
+            }
             else
+            {
                 displayControls.sprite = keyboardControls;
+                if (_controllerInput)
+                {
+                    _controllerInput = controllerInput;
+                    mOnKeyboardInputSwitch.Invoke();
+                }
+            }
+                
 #endif
         }
 
