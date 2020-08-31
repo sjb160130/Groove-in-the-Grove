@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace NatureLad
 {
     public class GameMaster : MonoBehaviour
     {
+        public UnityEvent mOnOwlActivated = new UnityEvent();
+        public UnityEvent mOnOwlDeactivated = new UnityEvent();
+
         public FollowManager followManager { get { return _followManager; } }
         
         [SerializeField]
@@ -19,6 +23,8 @@ namespace NatureLad
 
         public float endGameMinRange;
         public float endGameMaxRange;
+
+        private bool _owlIsActive;
 
         [SerializeField]
         private AnimationCurve _wakeBlendCurve = new AnimationCurve(new Keyframe(0,0), new Keyframe(1,1));
@@ -62,11 +68,19 @@ namespace NatureLad
             {
                 _owlRhythmTracker.SetProximityMin(endGameMinRange);
                 _owlRhythmTracker.SetProximityMax(endGameMaxRange);
+                
+                _owlIsActive = true;
+                mOnOwlActivated.Invoke();
             }
             else
             {
                 _owlRhythmTracker.SetProximityMin(.1f);
                 _owlRhythmTracker.SetProximityMax(.2f);
+                
+                if(_owlIsActive)
+                {
+                    mOnOwlDeactivated.Invoke();
+                }
             }
         }
     }

@@ -61,6 +61,7 @@ namespace NatureLad
         public UnityEvent mOnEnableInput = new UnityEvent();
         public UnityEvent mOnDisableInput = new UnityEvent();
 
+        [SerializeField]
         private bool _manualInputEnabled = true;
         private bool _inputEnabled = false;
         
@@ -472,8 +473,6 @@ namespace NatureLad
         {
             _manualInputEnabled = val;
         }
-
-
     }
 }
 

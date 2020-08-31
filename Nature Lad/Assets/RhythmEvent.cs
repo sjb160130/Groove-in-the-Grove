@@ -16,6 +16,7 @@ namespace NatureLad
         public UnityEvent mOnEnableInput = new UnityEvent();
         public UnityEvent mOnDisableInput = new UnityEvent();
 
+        [SerializeField]
         private bool _isActive = true;
 
         void Start()

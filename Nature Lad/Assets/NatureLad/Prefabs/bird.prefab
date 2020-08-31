@@ -134,6 +134,7 @@ MonoBehaviour:
       m_Calls: []
   followManager: {fileID: 0}
   target: {fileID: 0}
+  isFollower: 1
   moveTarget: {fileID: 0}
   minDistance: 1.5
   damp: 2
@@ -259,8 +260,8 @@ MonoBehaviour:
   attenuation: 0
   powerIncrease: 0.2
   ignoreProximity: 0
-  proximityRangeMin: 9.85
-  proximityRangeMax: 19.4
+  proximityRangeMin: 7.8
+  proximityRangeMax: 21.1
   proximityDamp: 1
   proximityPower: 0
   beatAccuracy: 0.9
@@ -673,12 +674,52 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3791389626221868192, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.25000346
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791389626221868192, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7831259
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791389626221868192, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.25216907
+      objectReference: {fileID: 0}
+    - target: {fileID: 3791389626221868192, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5105124
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: e699637f017578640857fc8c1893b87e,
         type: 2}
+    - target: {fileID: 6039544807166751088, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.17288682
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039544807166751088, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.8546986
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039544807166751088, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.2510592
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039544807166751088, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.42020214
+      objectReference: {fileID: 0}
     - target: {fileID: 6128231018128276158, guid: 340b5bbacdff5394c9f8efa286a5ffc2,
         type: 3}
       propertyPath: m_Layer
