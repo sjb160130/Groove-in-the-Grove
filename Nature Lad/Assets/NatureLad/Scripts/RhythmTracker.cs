@@ -64,7 +64,8 @@ namespace NatureLad
         [SerializeField]
         private bool _manualInputEnabled = true;
         private bool _inputEnabled = false;
-        
+
+        private bool _maxPower;
 
         public float power = 0f;
         [SerializeField]
@@ -215,7 +216,7 @@ namespace NatureLad
             if (!_ignoreAttenuation)
             {
                 power = Mathf.Max(power - attenuation * Time.deltaTime, 0.0f);
-            }            
+            }
 
             // change properties based on power
             // and invoke events
@@ -232,6 +233,8 @@ namespace NatureLad
                 {
                     _isFollowing = false;
                 }
+
+                _maxPower = false;
             }
 
             // figure out if input is enabled
@@ -344,11 +347,13 @@ namespace NatureLad
                         _hasPower = true;
                     }
 
-                    if (Mathf.Approximately(power, 1.0f))
+                    if (Mathf.Approximately(power, 1.0f) && !_maxPower)
                     {
+                        _maxPower = true;
                         mOnMaxPowerHit.Invoke();
                         _isFollowing = true;
                     }
+                    
 
                     mOnHit.Invoke();
                     mOnHitIdx.Invoke(hitIdx);

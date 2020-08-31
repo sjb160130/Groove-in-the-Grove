@@ -2265,91 +2265,7 @@ MonoBehaviour:
         m_CallState: 2
   onTriggerExit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 932738096}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3800400025917887033}
-        m_TargetAssemblyTypeName: NatureLad.Follower, Assembly-CSharp
-        m_MethodName: ResetMoveTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7621593489911331555}
-        m_TargetAssemblyTypeName: NatureLad.Follower, Assembly-CSharp
-        m_MethodName: ResetMoveTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2687618003679489452}
-        m_TargetAssemblyTypeName: NatureLad.Follower, Assembly-CSharp
-        m_MethodName: ResetMoveTarget
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1109431706}
-        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
-        m_MethodName: SetIgnoreAttenuation
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2747981097668751517}
-        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
-        m_MethodName: SetIgnoreAttenuation
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 6753580756998473671}
-        m_TargetAssemblyTypeName: NatureLad.RhythmTracker, Assembly-CSharp
-        m_MethodName: SetIgnoreAttenuation
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onTriggerStay:
     m_PersistentCalls:
       m_Calls: []
@@ -5551,8 +5467,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953705451}
   m_LocalRotation: {x: -0, y: 0.30104375, z: -0, w: 0.9536104}
-  m_LocalPosition: {x: -37.48, y: 5.04, z: 19.35}
-  m_LocalScale: {x: 14.549274, y: 17.092934, z: 8.750196}
+  m_LocalPosition: {x: -36.81, y: 5.04, z: 17.86}
+  m_LocalScale: {x: 14.549274, y: 17.092934, z: 9.622591}
   m_Children: []
   m_Father: {fileID: 503754279}
   m_RootOrder: 0
@@ -12823,6 +12739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
         type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
       propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1038171822}
@@ -12836,6 +12757,36 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1646350937}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 953705451}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 8716118666074942063, guid: cda6b0cef81d8134d8a8df6af0485588,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cda6b0cef81d8134d8a8df6af0485588, type: 3}
 --- !u!114 &2687618003679489452 stripped
@@ -13066,6 +13017,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
         type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
       propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1420886384}
@@ -13079,6 +13035,61 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1646350937}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1345532226}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747981097310028469, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2747981097310028470, guid: 0bb50beedfc30ae4c89f2bb43ebfaad0,
         type: 3}
       propertyPath: serializationData.Prefab
@@ -13235,6 +13246,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
         type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
       propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1810163169}
@@ -13248,6 +13264,41 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1646350937}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 223516399}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757743110152030844, guid: 26cf2750562041c439c270b8a1190d54,
+        type: 3}
+      propertyPath: mOnFollow.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 5757743110152030845, guid: 26cf2750562041c439c270b8a1190d54,
         type: 3}
       propertyPath: m_LocalPosition.x
