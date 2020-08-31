@@ -9,6 +9,12 @@ ModelImporter:
   - first:
       74: -998496362607748373
     second: intro idle
+  - first:
+      74: 3345023219436974208
+    second: intro (1)
+  - first:
+      74: -5252816984213320552
+    second: idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -38,8 +44,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: intro
-      takeName: Take 001
+      name: intro (1)
+      takeName: intro
       internalID: 0
       firstFrame: 0
       lastFrame: 318
@@ -209,11 +215,11 @@ ModelImporter:
       maskSource: {fileID: 31900000, guid: 49fb83f32b5dee846810e490391b240b, type: 2}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: intro idle
-      takeName: Take 001
+      name: idle
+      takeName: idle
       internalID: 0
-      firstFrame: 0
-      lastFrame: 13
+      firstFrame: -60
+      lastFrame: 0
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -376,7 +382,7 @@ ModelImporter:
         weight: 1
       - path: rootMotion_jnt/pelvis_0_sknJnt/spine_1_sknJnt/spine_2_sknJnt/chest_sknJnt/R_clav_sknJnt/R_shoulder_sknJnt/R_shoulder_roll_0_sknJnt
         weight: 1
-      maskType: 3
+      maskType: 1
       maskSource: {fileID: 31900000, guid: 49fb83f32b5dee846810e490391b240b, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 0
