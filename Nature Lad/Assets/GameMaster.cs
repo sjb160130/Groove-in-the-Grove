@@ -39,8 +39,9 @@ namespace NatureLad
         // Update is called once per frame
         void Update()
         {
-
+            
         }
+
         public void EnterOwlStage()
         {
             // Let's check if all of the animals are with us. If so, then we'll turn

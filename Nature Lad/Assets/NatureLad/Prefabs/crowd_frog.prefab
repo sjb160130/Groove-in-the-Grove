@@ -94,7 +94,7 @@ SphereCollider:
   m_GameObject: {fileID: 2747981097310028472}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0.5, z: 0}
@@ -118,6 +118,7 @@ MonoBehaviour:
       m_Calls: []
   followManager: {fileID: 0}
   target: {fileID: 0}
+  isFollower: 1
   moveTarget: {fileID: 0}
   minDistance: 0.5
   damp: 10
@@ -131,6 +132,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   _canTeleport: 0
+  wantedVelocity: {x: 0, y: 0, z: 0}
+  wantedVelocityMagnitude: 0
 --- !u!114 &232399602343521781
 MonoBehaviour:
   m_ObjectHideFlags: 0
