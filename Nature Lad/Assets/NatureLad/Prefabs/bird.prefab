@@ -256,6 +256,7 @@ MonoBehaviour:
   mOnDisableInput:
     m_PersistentCalls:
       m_Calls: []
+  _manualInputEnabled: 1
   power: 0
   attenuation: 0
   powerIncrease: 0.2
